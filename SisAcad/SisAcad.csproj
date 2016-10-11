@@ -2024,7 +2024,9 @@
     <Compile Include="Model\Historico.cs" />
     <Compile Include="Model\Matriz.cs" />
     <Compile Include="Model\Periodo_Letivo.cs" />
+    <Compile Include="Model\Periodo_LetivoDAL.cs" />
     <Compile Include="Model\Professor.cs" />
+    <Compile Include="Model\ProfessorDAL.cs" />
     <Compile Include="Model\Turmas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Aluno.aspx.cs">
