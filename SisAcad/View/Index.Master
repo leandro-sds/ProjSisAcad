@@ -1,0 +1,235 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Index.master.cs" Inherits="SisAcad.View.Index" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+  <meta name="description" content="bootstrap admin template" />
+  <meta name="Leandro Souza" content="" />
+
+  <title>SisAcad</title>
+
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/bootstrap-extend.min.css" />
+  <link rel="stylesheet" href="assets/css/site.min.css" />
+
+  <link rel="stylesheet" href="assets/vendor/animsition/animsition.css" />
+  <link rel="stylesheet" href="assets/vendor/asscrollable/asScrollable.css" />
+  <link rel="stylesheet" href="assets/vendor/switchery/switchery.css" />
+  <link rel="stylesheet" href="assets/vendor/intro-js/introjs.css" />
+  <link rel="stylesheet" href="assets/vendor/slidepanel/slidePanel.css" />
+  <link rel="stylesheet" href="assets/vendor/flag-icon-css/flag-icon.css" />
+
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="assets/fonts/web-icons/web-icons.min.css" />
+  <link rel="stylesheet" href="assets/fonts/brand-icons/brand-icons.min.css" />
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic' />
+
+  <!-- Inline -->
+  <style>
+    .example-well .page-header {
+      padding: 30px 20px;
+    }
+  </style>
+
+  <!--[if lt IE 9]>
+    <script src="../../assets/vendor/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 10]>
+    <script src="../../assets/vendor/media-match/media.match.min.js"></script>
+    <script src="../../assets/vendor/respond/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- Scripts -->
+  <script src="assets/vendor/modernizr/modernizr.js"></script>
+  <script src="assets/vendor/breakpoints/breakpoints.js"></script>
+  <script>
+      Breakpoints();
+  </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+
+        <div class="navbar-header">
+            <div class="navbar-brand navbar-brand-center">
+                <span class="navbar-brand-text">SisAcad </span>
+            </div>
+        </div>
+
+        <div class="navbar-container container-fluid">
+            <!-- Navbar Collapse -->
+            <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+            </div>
+            <!-- End Navbar Collapse -->
+        </div>
+    </nav>
+    <div class="site-menubar">
+        <div class="site-menubar-body">
+            <div>
+                <div>
+                    <ul class="site-menu">
+                        <li class="site-menu-item has-sub">
+                            <a href="javascript:void(0)" data-slug="layout">
+                                <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
+                                <span class="site-menu-title">Alunos</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                            <ul class="site-menu-sub">
+                                <li class="site-menu-item">
+                                    <a class="animsition-link" href="Aluno.aspx" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <span class="site-menu-title">Cadastrar</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item">
+                                    <a class="animsition-link" href="headers.html" data-slug="layout-headers">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <span class="site-menu-title">Listar</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="site-menu-item has-sub">
+                            <a href="javascript:void(0)" data-slug="page">
+                                <i class="site-menu-icon wb-file" aria-hidden="true"></i>
+                                <span class="site-menu-title">Pages</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                            <ul class="site-menu-sub">
+                                <li class="site-menu-item has-sub">
+                                    <a href="javascript:void(0)" data-slug="">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <span class="site-menu-title">Errors</span>
+                                        <span class="site-menu-arrow"></span>
+                                    </a>
+                                    <ul class="site-menu-sub">
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="../pages/400.html" data-slug="page-error-400">
+                                                <i class="site-menu-icon " aria-hidden="true"></i>
+                                                <span class="site-menu-title">400</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="../pages/403.html" data-slug="page-error-403">
+                                                <i class="site-menu-icon " aria-hidden="true"></i>
+                                                <span class="site-menu-title">403</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="../pages/404.html" data-slug="page-error-404">
+                                                <i class="site-menu-icon " aria-hidden="true"></i>
+                                                <span class="site-menu-title">404</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="../pages/500.html" data-slug="page-error-500">
+                                                <i class="site-menu-icon " aria-hidden="true"></i>
+                                                <span class="site-menu-title">500</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="../pages/503.html" data-slug="page-error-503">
+                                                <i class="site-menu-icon " aria-hidden="true"></i>
+                                                <span class="site-menu-title">503</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="site-menu-item">
+                                    <a class="animsition-link" href="../pages/faq.html" data-slug="page-faq">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <span class="site-menu-title">FAQ</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item">
+                                    <a class="animsition-link" href="../pages/register.html" data-slug="page-register">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <span class="site-menu-title">Register</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item">
+                                    <a class="animsition-link" href="../pages/login.html" data-slug="page-login">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <span class="site-menu-title">Login</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Site Menu Bar Body -->
+    </div>
+    <!-- Site Menu Bar -->
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="Content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <span class="site-footer-legal">© 2016 Leandro Souza</span>
+        <div class="site-footer-right">
+            Programação Web I
+        </div>
+    </footer>
+
+    <!-- Core  -->
+    <script src="assets/vendor/jquery/jquery.js"></script>
+    <script src="assets/vendor/bootstrap/bootstrap.js"></script>
+    <script src="assets/vendor/animsition/jquery.animsition.js"></script>
+    <script src="assets/vendor/asscroll/jquery-asScroll.js"></script>
+    <script src="assets/vendor/mousewheel/jquery.mousewheel.js"></script>
+    <script src="assets/vendor/asscrollable/jquery.asScrollable.all.js"></script>
+    <script src="assets/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/vendor/switchery/switchery.min.js"></script>
+    <script src="assets/vendor/intro-js/intro.js"></script>
+    <script src="assets/vendor/screenfull/screenfull.js"></script>
+    <script src="assets/vendor/slidepanel/jquery-slidePanel.js"></script>
+
+    <script src="assets/vendor/peity/jquery.peity.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="assets/js/core.js"></script>
+    <script src="assets/js/site.js"></script>
+
+    <script src="assets/js/sections/menu.js"></script>
+    <script src="assets/js/sections/menubar.js"></script>
+    <script src="assets/js/sections/sidebar.js"></script>
+
+    <script src="assets/js/configs/config-colors.js"></script>
+    <script src="assets/js/configs/config-tour.js"></script>
+
+    <script src="assets/js/components/asscrollable.js"></script>
+    <script src="assets/js/components/animsition.js"></script>
+    <script src="assets/js/components/slidepanel.js"></script>
+    <script src="assets/js/components/switchery.js"></script>
+    <script src="assets/js/components/peity.js"></script>
+
+    <script>
+        (function (document, window, $) {
+            'use strict';
+
+            var Site = window.Site;
+            $(document).ready(function () {
+                Site.run();
+            });
+        })(document, window, jQuery);
+    </script>
+</body>
+</html>

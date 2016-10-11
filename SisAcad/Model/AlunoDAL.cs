@@ -82,7 +82,7 @@ namespace SisAcad.Model {
                                         FROM Aluno 
                                         WHERE (@mat is null or aluno_Mat = @mat) AND 
                                         (@nome is NULL or aluno_Nome = @nome) AND
-                                        (@codCuro is NULL or aluno_CodCurso = @codCurso)", con);
+                                        (@codCurso is NULL or aluno_CodCurso = @codCurso)", con);
                 cmd.Parameters.AddWithValue("@mat", mat);
                 cmd.Parameters.AddWithValue("@nome", nome);
                 cmd.Parameters.AddWithValue("@codCurso", codCurso);

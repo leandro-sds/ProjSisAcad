@@ -12,6 +12,7 @@ namespace SisAcad.Model {
 
         public void Insert(Curso curso, int idProf) {
             try {
+                con.Open();
                 query = "INSERT INTO Cursos (curso_Cod, curso_Nome, curso_TotCred, curso_IdProf) VALUES (@codCurso, @nome, @totCred, @idProf";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@codCurso", curso.curso_Cod);
@@ -30,6 +31,7 @@ namespace SisAcad.Model {
 
         public void Update(Curso curso, int idProf) {
             try {
+                con.Open();
                 query = "UPDATE Cursos SET curso_cod = @codCurso, curso_Nome = @nome, curso_TotCred = @totCred, curso_IdProf = @idProf";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@codCurso", curso.curso_Cod);
@@ -48,6 +50,7 @@ namespace SisAcad.Model {
 
         public void Delete(int codCurso) {
             try {
+                con.Open();
                 query = "DELETE * FROM Cursos WHERE curso_Cod = @codCurso";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@codCurso", codCurso);
@@ -61,8 +64,9 @@ namespace SisAcad.Model {
             }
         }
 
-        public List<Curso> List(int prof, string nome) {
+        public List<Curso> Listar(int prof, string nome) {
             try {
+                con.Open();
                 query = @"SELECT * FROM Cursos WHERE
                         (@prof = 0 OR curso_IdProf = @prof) AND 
                         (@nome is NULL or curso_Nome = @nome)";
@@ -77,14 +81,16 @@ namespace SisAcad.Model {
                     curso.curso_IdProf = Convert.ToInt32("curso_IdProf");
                     curso.curso_Nome = Convert.ToString("curso_Nome");
                     curso.curso_TotCred = Convert.ToInt32("curso_TotCred");
-
+                    lista.Add(curso);
                 }
+                return lista;
             }
             catch {
+                throw new Exception("Erro ao listar alunos.");
 
             }
             finally {
-
+                con.Close();
             }
         }
     }
