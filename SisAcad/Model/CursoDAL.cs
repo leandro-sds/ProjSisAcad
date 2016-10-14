@@ -13,7 +13,7 @@ namespace SisAcad.Model {
         public void Insert(Curso curso, int idProf) {
             try {
                 con.Open();
-                query = "INSERT INTO Cursos (curso_Cod, curso_Nome, curso_TotCred, curso_IdProf) VALUES (@codCurso, @nome, @totCred, @idProf";
+                query = "INSERT INTO Cursos (curso_Cod, curso_Nome, curso_TotCred, curso_IdProf) VALUES (@codCurso, @nome, @totCred, @idProf)";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@codCurso", curso.curso_Cod);
                 cmd.Parameters.AddWithValue("@nome", curso.curso_Nome);
@@ -23,6 +23,24 @@ namespace SisAcad.Model {
             }
             catch {
                 throw new Exception("Erro ao cadastrar curso.");
+            }
+            finally {
+                con.Close();
+            }
+        }
+
+        public void Insert(Curso curso) {
+            try {
+                con.Open();
+                query = "INSERT INTO Cursos (curso_Nome, curso_TotCred, curso_IdProf) VALUES (@nome, @totCred, @idProf)";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@nome", curso.curso_Nome);
+                cmd.Parameters.AddWithValue("@totCred", curso.curso_TotCred);
+                cmd.Parameters.AddWithValue("@idProf", Convert.ToInt16(curso.curso_IdProf));
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception erro) {
+                throw new Exception("erro" + erro.Message);
             }
             finally {
                 con.Close();
@@ -77,6 +95,33 @@ namespace SisAcad.Model {
                 Curso curso = new Curso();
                 
                 while(dr.Read()) {
+                    curso.curso_Cod = Convert.ToInt32("curso_Cod");
+                    curso.curso_IdProf = Convert.ToInt32("curso_IdProf");
+                    curso.curso_Nome = Convert.ToString("curso_Nome");
+                    curso.curso_TotCred = Convert.ToInt32("curso_TotCred");
+                    lista.Add(curso);
+                }
+                return lista;
+            }
+            catch {
+                throw new Exception("Erro ao listar alunos.");
+
+            }
+            finally {
+                con.Close();
+            }
+        }
+
+        public List<Curso> Listar() {
+            try {
+                con.Open();
+                query = @"SELECT * FROM Cursos";
+                cmd = new SqlCommand(query, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Curso> lista = new List<Curso>();
+                Curso curso = new Curso();
+
+                while (dr.Read()) {
                     curso.curso_Cod = Convert.ToInt32("curso_Cod");
                     curso.curso_IdProf = Convert.ToInt32("curso_IdProf");
                     curso.curso_Nome = Convert.ToString("curso_Nome");

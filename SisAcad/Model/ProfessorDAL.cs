@@ -86,5 +86,40 @@ namespace SisAcad.Model {
                 con.Close();
             }
         }
+
+        public List<Professor> Listar() {
+            List<Professor> lista = new List<Professor>();
+            try {
+                con.Open();
+                cmd = new SqlCommand("SELECT * FROM Professor", con);
+                SqlDataReader dr = cmd.ExecuteReader();
+               
+                
+
+                while (dr.Read()) {//-----AQUI TEM UM ERRO VOU VER COMO ESTÁ O MEU AQUI 1 MINUTO OOK Estranho que agora funcionou...
+                    Professor prof = new Professor();
+                    prof.prof_Mat = dr["prof_Mat"].ToString();
+                    prof.prof_Nome = dr["prof_Nome"].ToString();
+                    prof.prof_Id = (dr["prof_Id"].ToString());
+                    lista.Add(prof);
+                }
+                
+            }
+            catch (Exception erro) {
+                throw new Exception("erro " + erro.Message);
+            }
+            finally {
+                con.Close();
+            }
+            return lista;
+        }
+
+
+
+
+
+
+
+
     }
 }

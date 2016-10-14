@@ -119,7 +119,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="View\Aluno.aspx" />
+    <Content Include="View\cadastrarAluno.aspx" />
+    <Content Include="View\listarAluno.aspx" />
     <Content Include="View\assets\css\apps\calendar.css" />
     <Content Include="View\assets\css\apps\calendar.min.css" />
     <Content Include="View\assets\css\apps\contacts.css" />
@@ -1929,7 +1930,8 @@
     <Content Include="View\assets\vendor\x-editable\images\loading.gif" />
     <Content Include="View\assets\vendor\x-editable\x-editable.css" />
     <Content Include="View\assets\vendor\x-editable\x-editable.min.css" />
-    <Content Include="View\Index.Master" />
+    <Content Include="View\listarCurso.aspx" />
+    <Content Include="View\Master.Master" />
     <Content Include="View\assets\data\angular\ui\bootstrap.json" />
     <Content Include="View\assets\data\angular\ui\grids.json" />
     <Content Include="View\assets\data\angular\ui\modules.json" />
@@ -2012,6 +2014,8 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AlunoController.cs" />
+    <Compile Include="Controllers\CursoController.cs" />
+    <Compile Include="Controllers\ProfessorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2029,12 +2033,19 @@
     <Compile Include="Model\ProfessorDAL.cs" />
     <Compile Include="Model\Turmas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Aluno.aspx.cs">
-      <DependentUpon>Aluno.aspx</DependentUpon>
+    <Compile Include="View\cadastrarAluno.aspx.cs">
+      <DependentUpon>cadastrarAluno.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Aluno.aspx.designer.cs">
-      <DependentUpon>Aluno.aspx</DependentUpon>
+    <Compile Include="View\cadastrarAluno.aspx.designer.cs">
+      <DependentUpon>cadastrarAluno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\listarAluno.aspx.cs">
+      <DependentUpon>listarAluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\listarAluno.aspx.designer.cs">
+      <DependentUpon>listarAluno.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\frmAluno.aspx.cs">
       <DependentUpon>frmAluno.aspx</DependentUpon>
@@ -2043,12 +2054,19 @@
     <Compile Include="View\frmAluno.aspx.designer.cs">
       <DependentUpon>frmAluno.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Index.Master.cs">
-      <DependentUpon>Index.Master</DependentUpon>
+    <Compile Include="View\listarCurso.aspx.cs">
+      <DependentUpon>listarCurso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Index.Master.designer.cs">
-      <DependentUpon>Index.Master</DependentUpon>
+    <Compile Include="View\listarCurso.aspx.designer.cs">
+      <DependentUpon>listarCurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Master.Master.designer.cs">
+      <DependentUpon>Master.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

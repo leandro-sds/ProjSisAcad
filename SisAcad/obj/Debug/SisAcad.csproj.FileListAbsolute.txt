@@ -79,3 +79,4 @@ C:\Users\2141109404\Documents\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bi
 C:\Users\2141109404\Documents\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.csprojResolveAssemblyReference.cache
 C:\Users\2141109404\Documents\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.dll
 C:\Users\2141109404\Documents\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.pdb
+D:\Documentos\Visual Studio 2015\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.csprojResolveAssemblyReference.cache

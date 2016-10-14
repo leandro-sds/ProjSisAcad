@@ -75,7 +75,7 @@ namespace SisAcad.Model {
 
         }
 
-        public List<Aluno> Listar(int mat, String nome, int codCurso) {
+        public List<Aluno> Listar(string nome, string mat, string codCurso) {
             try {
                 con.Open();
                 cmd = new SqlCommand(@"SELECT * 
@@ -83,9 +83,37 @@ namespace SisAcad.Model {
                                         WHERE (@mat is null or aluno_Mat = @mat) AND 
                                         (@nome is NULL or aluno_Nome = @nome) AND
                                         (@codCurso is NULL or aluno_CodCurso = @codCurso)", con);
-                cmd.Parameters.AddWithValue("@mat", mat);
+                /*cmd.Parameters.AddWithValue("@mat", mat);
                 cmd.Parameters.AddWithValue("@nome", nome);
-                cmd.Parameters.AddWithValue("@codCurso", codCurso);
+                cmd.Parameters.AddWithValue("@codCurso", codCurso);*/
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Aluno> lista = new List<Aluno>();
+                Aluno aluno = new Aluno();
+
+                while (dr.Read()) {
+                    aluno.aluno_Mat = Convert.ToInt16("aluno_Mat");
+                    aluno.aluno_Nome = Convert.ToString("aluno_Nome");
+                    aluno.aluno_DataNasc = Convert.ToDateTime("aluno_DataNasc");
+                    aluno.aluno_MGP = Convert.ToDecimal("aluno_MGP");
+                    aluno.aluno_TotCred = Convert.ToInt16("aluno_TotCred");
+                    aluno.aluno_CodCurso = Convert.ToInt16("aluno_CodCurso");
+                    lista.Add(aluno);
+                }
+                return lista;
+            }
+            catch {
+                throw new Exception("Erro ao listar alunos.");
+            }
+            finally {
+                con.Close();
+            }
+
+        }
+
+        public List<Aluno> Listar() {
+            try {
+                con.Open();
+                cmd = new SqlCommand(@"SELECT * FROM Aluno", con);
                 SqlDataReader dr = cmd.ExecuteReader();
                 List<Aluno> lista = new List<Aluno>();
                 Aluno aluno = new Aluno();

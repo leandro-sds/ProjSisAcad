@@ -26,8 +26,8 @@ namespace SisAcad.Controllers
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Aluno> Listar(int mat, String nome, int codCurso) {
-            return alunoDAL.Listar(mat, nome, codCurso);
+        public List<Aluno> Listar() {
+            return alunoDAL.Listar();
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
