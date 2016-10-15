@@ -1931,6 +1931,7 @@
     <Content Include="View\assets\vendor\x-editable\x-editable.css" />
     <Content Include="View\assets\vendor\x-editable\x-editable.min.css" />
     <Content Include="View\listarCurso.aspx" />
+    <Content Include="View\listarProfessor.aspx" />
     <Content Include="View\Master.Master" />
     <Content Include="View\assets\data\angular\ui\bootstrap.json" />
     <Content Include="View\assets\data\angular\ui\grids.json" />
@@ -2060,6 +2061,13 @@
     </Compile>
     <Compile Include="View\listarCurso.aspx.designer.cs">
       <DependentUpon>listarCurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\listarProfessor.aspx.cs">
+      <DependentUpon>listarProfessor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\listarProfessor.aspx.designer.cs">
+      <DependentUpon>listarProfessor.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>

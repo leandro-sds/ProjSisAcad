@@ -72,6 +72,11 @@
             <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
             </div>
             <!-- End Navbar Collapse -->
+
+            <!-- Site Navbar Seach -->
+            <div class="collapse navbar-search-overlap" id="site-navbar-search">
+            </div>
+            <!-- End Site Navbar Seach -->
         </div>
     </nav>
     <div class="site-menubar">
@@ -169,23 +174,23 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <!-- Site Menu Bar Body -->
-    </div>
-    <!-- Site Menu Bar -->
+        </div> <!-- Site Menu Bar Body -->
+    </div> <!-- Site Menu Bar -->
+
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="Content" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
-    <!-- Footer -->
-    <footer class="site-footer">
-        <span class="site-footer-legal">© 2016 Leandro Souza</span>
-        <div class="site-footer-right">
-            Programação Web I
-        </div>
-    </footer>
+
+     <!-- Footer -->
+  <footer class="site-footer">
+    <span class="site-footer-legal">© 2016 Leandro Souza</span>
+    <div class="site-footer-right">
+      Programação Web I
+    </div>
+  </footer>
 
     <!-- Core  -->
     <script src="assets/vendor/jquery/jquery.js"></script>
