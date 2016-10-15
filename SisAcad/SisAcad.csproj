@@ -1930,7 +1930,7 @@
     <Content Include="View\assets\vendor\x-editable\images\loading.gif" />
     <Content Include="View\assets\vendor\x-editable\x-editable.css" />
     <Content Include="View\assets\vendor\x-editable\x-editable.min.css" />
-    <Content Include="View\listarCurso.aspx" />
+    <Content Include="View\cadastrarCurso.aspx" />
     <Content Include="View\listarProfessor.aspx" />
     <Content Include="View\Master.Master" />
     <Content Include="View\assets\data\angular\ui\bootstrap.json" />
@@ -2057,12 +2057,12 @@
     <Compile Include="View\frmAluno.aspx.designer.cs">
       <DependentUpon>frmAluno.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\listarCurso.aspx.cs">
-      <DependentUpon>listarCurso.aspx</DependentUpon>
+    <Compile Include="View\cadastrarCurso.aspx.cs">
+      <DependentUpon>cadastrarCurso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\listarCurso.aspx.designer.cs">
-      <DependentUpon>listarCurso.aspx</DependentUpon>
+    <Compile Include="View\cadastrarCurso.aspx.designer.cs">
+      <DependentUpon>cadastrarCurso.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\listarProfessor.aspx.cs">
       <DependentUpon>listarProfessor.aspx</DependentUpon>
