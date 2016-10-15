@@ -177,12 +177,16 @@
         </div> <!-- Site Menu Bar Body -->
     </div> <!-- Site Menu Bar -->
 
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="Content" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
+    <!-- Page -->
+    <div class="page animsition">
+        <form id="form1" runat="server">
+            <div>
+                <asp:ContentPlaceHolder ID="Content" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+    </div>
+    <!-- End Page -->
 
      <!-- Footer -->
   <footer class="site-footer">

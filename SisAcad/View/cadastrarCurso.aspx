@@ -1,18 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Master.Master" AutoEventWireup="true" CodeBehind="listarCurso.aspx.cs" Inherits="SisAcad.View.listarCurso" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Master.Master" AutoEventWireup="true" CodeBehind="cadastrarCurso.aspx.cs" Inherits="SisAcad.View.listarCurso" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
-    <!-- Page -->
-  <div class="page animsition">
+    <!-- Page Head -->
     <div class="page-header">
       <h1 class="page-title">Cadastrar</h1>
     </div>
+    <!-- End Page Head -->
+
+    <!-- Page Content -->
     <div class="page-content container-fluid">
-      <!-- Panel Header -->
       <div class="panel">
         <div class="panel-body">
             <asp:FormView ID="FormView1" runat="server" CssClass="form-horizontal" DataSourceID="objCurso" DefaultMode="Insert">
-                <%-- INSERT --%>
                 <InsertItemTemplate>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Nome: </label>
@@ -37,13 +37,10 @@
                     </div>
                     <asp:LinkButton runat="server" Text="Inserir" CssClass="btn btn-primary" CommandName="Insert" ID="InsertButton" CausesValidation="True" />&nbsp;<asp:LinkButton runat="server" Text="Cancelar" CssClass="btn btn-danger" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
                 </InsertItemTemplate>
-                 <%-- INSERT --%>
             </asp:FormView>
             <asp:ObjectDataSource runat="server" ID="objCurso" DataObjectTypeName="SisAcad.Model.Curso" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.CursoController"></asp:ObjectDataSource>
         </div>
       </div>
-      <!-- End Panel Header -->
     </div>
-  </div>
-  <!-- End Page -->
+    <!-- End Page Content -->
 </asp:Content>
