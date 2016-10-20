@@ -1,0 +1,14 @@
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\SisAcad.dll.config
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\SisAcad.dll
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\SisAcad.pdb
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\Newtonsoft.Json.dll
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\System.Net.Http.Formatting.dll
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\System.Web.Http.dll
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\System.Web.Http.WebHost.dll
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\Newtonsoft.Json.xml
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\System.Net.Http.Formatting.xml
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\System.Web.Http.xml
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\System.Web.Http.WebHost.xml
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.csprojResolveAssemblyReference.cache
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.dll
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.pdb
