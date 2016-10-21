@@ -24,7 +24,7 @@ namespace SisAcad.Controllers
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Detele(Professor objProf) {
+        public void Delete(Professor objProf) {
             professorDAL.Delete(objProf);
         }
 

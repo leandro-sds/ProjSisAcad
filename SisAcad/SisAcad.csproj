@@ -144,6 +144,7 @@
     <Content Include="View\assets\vendor\slick-carousel\fonts\slick.ttf" />
     <Content Include="View\assets\vendor\slick-carousel\fonts\slick.woff" />
     <Content Include="View\assets\vendor\toastr\toastr.js.map" />
+    <Content Include="View\cadastrarProfessor.aspx" />
     <Content Include="View\Example.aspx" />
     <Content Include="View\listarCurso.aspx" />
     <Content Include="View\Master.Master" />
@@ -1967,7 +1968,6 @@
     <Content Include="View\assets\vendor\x-editable\x-editable.min.css" />
     <Content Include="View\cadastrarAluno.aspx" />
     <Content Include="View\cadastrarCurso.aspx" />
-    <Content Include="View\frmAluno.aspx" />
     <Content Include="View\listarAluno.aspx" />
     <Content Include="View\listarProfessor.aspx" />
     <Content Include="Web.config" />
@@ -2008,19 +2008,19 @@
     <Compile Include="View\cadastrarCurso.aspx.designer.cs">
       <DependentUpon>cadastrarCurso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\cadastrarProfessor.aspx.cs">
+      <DependentUpon>cadastrarProfessor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\cadastrarProfessor.aspx.designer.cs">
+      <DependentUpon>cadastrarProfessor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Example.aspx.cs">
       <DependentUpon>Example.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\Example.aspx.designer.cs">
       <DependentUpon>Example.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\frmAluno.aspx.cs">
-      <DependentUpon>frmAluno.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\frmAluno.aspx.designer.cs">
-      <DependentUpon>frmAluno.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\listarAluno.aspx.cs">
       <DependentUpon>listarAluno.aspx</DependentUpon>

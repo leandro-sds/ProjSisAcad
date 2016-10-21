@@ -3,17 +3,20 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
     <!-- Page -->
+    <!-- Panel Header -->
     <div class="page-header">
       <h1 class="page-title">Cadastrar</h1>
     </div>
+    <!-- End Panel Header -->
+    <!-- Page Content -->
     <div class="page-content container-fluid">
-      <!-- Panel Header -->
+      
       <div class="panel">
         <div class="panel-body">
             <!-- Conteudo aqui -->
         </div>
       </div>
-      <!-- End Panel Header -->
+      <!-- End Panel Content -->
     </div>
   <!-- End Page -->
 </asp:Content>

@@ -16,25 +16,29 @@ namespace SisAcad.Model {
                 con.Open();
                 query = "INSERT INTO Professor (prof_Mat, prof_Nome) VALUES (@mat, @nome)";
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@mat", mat + getTotal());
+                
+                SqlCommand getTotal = new SqlCommand("SELECT COUNT(*) FROM Professor", con);
+                int total = Convert.ToInt32(getTotal.ExecuteScalar());
+
+                cmd.Parameters.AddWithValue("@mat", mat + total);
                 cmd.Parameters.AddWithValue("@nome", prof.prof_Nome);
                 cmd.ExecuteNonQuery();
             }
-            catch {
-                throw new Exception("Erro ao cadastrar professor.");
+            catch (Exception e) {
+                throw new Exception("Erro ao cadastrar professor " + e.Message);
             }
             finally {
                 con.Close();
             }
         }
 
-        private int getTotal() {
-            con.Open();
-            query = "SELECT * FROM Professor";
+        /*private int getTotal() {
+            query = "SELECT COUNT(*) FROM Professor";
             cmd = new SqlCommand(query, con);
-            int total;
-            return total = Convert.ToInt32(cmd.ExecuteScalar());
-        }
+            int total = Convert.ToInt32(cmd.ExecuteScalar());
+            return total;
+            
+        }*/
 
         public void Update(Professor prof) {
             try {
@@ -55,7 +59,7 @@ namespace SisAcad.Model {
         public void Delete(Professor prof) {
             try {
                 con.Open();
-                query = "DELETE * FROM Professor WHERE prof_mat = @mat";
+                query = "DELETE FROM Professor WHERE prof_mat = @mat";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@mat", prof.prof_Mat);
                 cmd.ExecuteNonQuery();
