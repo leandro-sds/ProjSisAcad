@@ -3,9 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
     <!-- Page -->
-  <div class="page animsition">
     <div class="page-header">
-      <h1 class="page-title">Cadastrar</h1>
+      <h1 class="page-title">Cadastrar Curso</h1>
     </div>
     <div class="page-content container-fluid">
       <!-- Panel Header -->
@@ -35,7 +34,13 @@
                             <asp:ObjectDataSource runat="server" ID="objProf" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.ProfessorController"></asp:ObjectDataSource>
                         </div>
                     </div>
-                    <asp:LinkButton runat="server" Text="Inserir" CssClass="btn btn-primary" CommandName="Insert" ID="InsertButton" CausesValidation="True" />&nbsp;<asp:LinkButton runat="server" Text="Cancelar" CssClass="btn btn-danger" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
+
+                    <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <asp:LinkButton runat="server" Text="Inserir" CssClass="btn btn-primary" CommandName="Insert" ID="InsertButton" CausesValidation="True" />
+                            <asp:LinkButton runat="server" Text="Cancelar" CssClass="btn btn-danger" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
+                        </div>
+                    </div>
                 </InsertItemTemplate>
                  <%-- INSERT --%>
             </asp:FormView>
@@ -44,6 +49,5 @@
       </div>
       <!-- End Panel Header -->
     </div>
-  </div>
   <!-- End Page -->
 </asp:Content>

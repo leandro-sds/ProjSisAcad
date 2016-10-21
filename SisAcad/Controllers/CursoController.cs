@@ -15,13 +15,22 @@ namespace SisAcad.Controllers
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Insert(Curso objCurso) {
-
             cursoDal.Insert(objCurso);
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Curso> Listar() {
             return cursoDal.Listar();
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public void Update(Curso objCurso) {
+            cursoDal.Update(objCurso);
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public void Delete(Curso objCurso) {
+            cursoDal.Delete(objCurso);
         }
     }
 }

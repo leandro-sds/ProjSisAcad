@@ -144,6 +144,8 @@
     <Content Include="View\assets\vendor\slick-carousel\fonts\slick.ttf" />
     <Content Include="View\assets\vendor\slick-carousel\fonts\slick.woff" />
     <Content Include="View\assets\vendor\toastr\toastr.js.map" />
+    <Content Include="View\Example.aspx" />
+    <Content Include="View\listarCurso.aspx" />
     <Content Include="View\Master.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2006,6 +2008,13 @@
     <Compile Include="View\cadastrarCurso.aspx.designer.cs">
       <DependentUpon>cadastrarCurso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Example.aspx.cs">
+      <DependentUpon>Example.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Example.aspx.designer.cs">
+      <DependentUpon>Example.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\frmAluno.aspx.cs">
       <DependentUpon>frmAluno.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2019,6 +2028,13 @@
     </Compile>
     <Compile Include="View\listarAluno.aspx.designer.cs">
       <DependentUpon>listarAluno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\listarCurso.aspx.cs">
+      <DependentUpon>listarCurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\listarCurso.aspx.designer.cs">
+      <DependentUpon>listarCurso.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\listarProfessor.aspx.cs">
       <DependentUpon>listarProfessor.aspx</DependentUpon>

@@ -87,18 +87,39 @@
                         <li class="site-menu-item has-sub">
                             <a href="javascript:void(0)" data-slug="layout">
                                 <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
-                                <span class="site-menu-title">Alunos</span>
+                                <span class="site-menu-title">Cursos</span>
                                 <span class="site-menu-arrow"></span>
                             </a>
                             <ul class="site-menu-sub">
                                 <li class="site-menu-item">
-                                    <a class="animsition-link" href="Aluno.aspx" data-slug="layout-grids">
+                                    <a class="animsition-link" href="cadastrarCurso.aspx" data-slug="layout-grids">
                                         <i class="site-menu-icon " aria-hidden="true"></i>
                                         <span class="site-menu-title">Cadastrar</span>
                                     </a>
                                 </li>
                                 <li class="site-menu-item">
-                                    <a class="animsition-link" href="headers.html" data-slug="layout-headers">
+                                    <a class="animsition-link" href="listarCurso.aspx" data-slug="layout-headers">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <span class="site-menu-title">Listar</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="site-menu-item has-sub">
+                            <a href="javascript:void(0)" data-slug="layout">
+                                <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
+                                <span class="site-menu-title">Professor</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                            <ul class="site-menu-sub">
+                                <li class="site-menu-item">
+                                    <a class="animsition-link" href="listarProfessor.aspx" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <span class="site-menu-title">Cadastrar</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item">
+                                    <a class="animsition-link" href="listarProfessor.aspx" data-slug="layout-headers">
                                         <i class="site-menu-icon " aria-hidden="true"></i>
                                         <span class="site-menu-title">Listar</span>
                                     </a>

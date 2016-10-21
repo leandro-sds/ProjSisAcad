@@ -47,35 +47,35 @@ namespace SisAcad.Model {
             }
         }
 
-        public void Update(Curso curso, int idProf) {
+        public void Update(Curso curso) {
             try {
                 con.Open();
-                query = "UPDATE Cursos SET curso_cod = @codCurso, curso_Nome = @nome, curso_TotCred = @totCred, curso_IdProf = @idProf";
+                query = "UPDATE Cursos SET curso_Nome = @nome, curso_TotCred = @totCred, curso_IdProf = @idProf WHERE curso_Cod = @codCurso";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@codCurso", curso.curso_Cod);
                 cmd.Parameters.AddWithValue("@nome", curso.curso_Nome);
                 cmd.Parameters.AddWithValue("@totCred", curso.curso_TotCred);
-                cmd.Parameters.AddWithValue("@idProf", idProf);
+                cmd.Parameters.AddWithValue("@idProf", curso.curso_IdProf);
                 cmd.ExecuteNonQuery();
             }
-            catch {
-                throw new Exception("Erro");
+            catch (Exception e) {
+                throw new Exception("Erro " + e.Message);
             }
             finally {
                 con.Close();
             }
         }
 
-        public void Delete(int codCurso) {
+        public void Delete(Curso curso) {
             try {
                 con.Open();
-                query = "DELETE * FROM Cursos WHERE curso_Cod = @codCurso";
+                query = "DELETE FROM Cursos WHERE curso_Cod = @codCurso";
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@codCurso", codCurso);
+                cmd.Parameters.AddWithValue("@codCurso", curso.curso_Cod);
                 cmd.ExecuteNonQuery();
             }
-            catch {
-                throw new Exception("Erro");
+            catch (Exception e) {
+                throw new Exception("Erro " + e.Message);
             }
             finally {
                 con.Close();
@@ -119,13 +119,13 @@ namespace SisAcad.Model {
                 cmd = new SqlCommand(query, con);
                 SqlDataReader dr = cmd.ExecuteReader();
                 List<Curso> lista = new List<Curso>();
-                Curso curso = new Curso();
-
+               
                 while (dr.Read()) {
-                    curso.curso_Cod = Convert.ToInt32("curso_Cod");
-                    curso.curso_IdProf = Convert.ToInt32("curso_IdProf");
-                    curso.curso_Nome = Convert.ToString("curso_Nome");
-                    curso.curso_TotCred = Convert.ToInt32("curso_TotCred");
+                    Curso curso = new Curso();
+                    curso.curso_Cod = Convert.ToInt32(dr["curso_Cod"]);
+                    curso.curso_IdProf = Convert.ToInt32(dr["curso_IdProf"]);
+                    curso.curso_Nome = dr["curso_Nome"].ToString();
+                    curso.curso_TotCred = Convert.ToInt32(dr["curso_TotCred"]);
                     lista.Add(curso);
                 }
                 return lista;

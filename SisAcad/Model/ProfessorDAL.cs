@@ -11,11 +11,12 @@ namespace SisAcad.Model {
         private SqlCommand cmd;
 
         public void Insert(Professor prof) {
+            int mat = 2016;
             try {
                 con.Open();
                 query = "INSERT INTO Professor (prof_Mat, prof_Nome) VALUES (@mat, @nome)";
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@mat", prof.prof_Mat);
+                cmd.Parameters.AddWithValue("@mat", mat + getTotal());
                 cmd.Parameters.AddWithValue("@nome", prof.prof_Nome);
                 cmd.ExecuteNonQuery();
             }
@@ -25,6 +26,14 @@ namespace SisAcad.Model {
             finally {
                 con.Close();
             }
+        }
+
+        private int getTotal() {
+            con.Open();
+            query = "SELECT * FROM Professor";
+            cmd = new SqlCommand(query, con);
+            int total;
+            return total = Convert.ToInt32(cmd.ExecuteScalar());
         }
 
         public void Update(Professor prof) {
@@ -43,16 +52,16 @@ namespace SisAcad.Model {
             }
         }
 
-        public void Delete(int matProf) {
+        public void Delete(Professor prof) {
             try {
                 con.Open();
                 query = "DELETE * FROM Professor WHERE prof_mat = @mat";
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@mat", matProf);
+                cmd.Parameters.AddWithValue("@mat", prof.prof_Mat);
                 cmd.ExecuteNonQuery();
             }
-            catch {
-                throw new Exception("Erro ao deletar professor");
+            catch (Exception e) {
+                throw new Exception("Erro ao deletar professor " + e.Message);
             }
             finally {
                 con.Close();
@@ -96,11 +105,11 @@ namespace SisAcad.Model {
                
                 
 
-                while (dr.Read()) {//-----AQUI TEM UM ERRO VOU VER COMO ESTÁ O MEU AQUI 1 MINUTO OOK Estranho que agora funcionou...
+                while (dr.Read()) {
                     Professor prof = new Professor();
                     prof.prof_Mat = dr["prof_Mat"].ToString();
                     prof.prof_Nome = dr["prof_Nome"].ToString();
-                    prof.prof_Id = (dr["prof_Id"].ToString());
+                    prof.prof_Id = dr["prof_Id"].ToString();
                     lista.Add(prof);
                 }
                 

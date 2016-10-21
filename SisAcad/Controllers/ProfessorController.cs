@@ -17,5 +17,20 @@ namespace SisAcad.Controllers
         public List<Professor> Listar() {
             return professorDAL.Listar();
         }
+
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public void Update(Professor objProf) {
+            professorDAL.Update(objProf);
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public void Detele(Professor objProf) {
+            professorDAL.Delete(objProf);
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public void Insert(Professor objProf) {
+            professorDAL.Insert(objProf);
+        }
     }
 }
