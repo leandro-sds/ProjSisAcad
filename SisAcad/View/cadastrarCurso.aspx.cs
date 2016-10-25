@@ -8,7 +8,8 @@ using System.Web.UI.WebControls;
 namespace SisAcad.View {
     public partial class listarCurso : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-
+            ServiceReference1.wsNewSoapClient wsNewSoapClient  = new ServiceReference1.wsNewSoapClient();
+            wsNewSoapClient.metodo1(1);
         }
     }
 }

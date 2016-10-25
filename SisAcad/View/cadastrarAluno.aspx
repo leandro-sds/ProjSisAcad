@@ -2,8 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
-    <!-- Page -->
-  <div class="page animsition">
     <div class="page-header">
       <h1 class="page-title">Cadastrar Aluno</h1>
     </div>
@@ -11,64 +9,52 @@
       <!-- Panel Header -->
       <div class="panel">
         <div class="panel-body">
-            <asp:FormView ID="FormView1" runat="server" DataSourceID="objAluno">
-                <EditItemTemplate>
-                    Id:
-                    <asp:TextBox Text='<%# Bind("Id") %>' runat="server" ID="IdTextBox" /><br />
-                    aluno_Mat:
-                    <asp:TextBox Text='<%# Bind("aluno_Mat") %>' runat="server" ID="aluno_MatTextBox" /><br />
-                    aluno_Nome:
-                    <asp:TextBox Text='<%# Bind("aluno_Nome") %>' runat="server" ID="aluno_NomeTextBox" /><br />
-                    aluno_TotCred:
-                    <asp:TextBox Text='<%# Bind("aluno_TotCred") %>' runat="server" ID="aluno_TotCredTextBox" /><br />
-                    aluno_DataNasc:
-                    <asp:TextBox Text='<%# Bind("aluno_DataNasc") %>' runat="server" ID="aluno_DataNascTextBox" /><br />
-                    aluno_MGP:
-                    <asp:TextBox Text='<%# Bind("aluno_MGP") %>' runat="server" ID="aluno_MGPTextBox" /><br />
-                    aluno_CodCurso:
-                    <asp:TextBox Text='<%# Bind("aluno_CodCurso") %>' runat="server" ID="aluno_CodCursoTextBox" /><br />
-                    <asp:LinkButton runat="server" Text="Atualizar" CommandName="Update" ID="UpdateButton" CausesValidation="True" />&nbsp;<asp:LinkButton runat="server" Text="Cancelar" CommandName="Cancel" ID="UpdateCancelButton" CausesValidation="False" />
-                </EditItemTemplate>
+            <asp:FormView ID="FormView1" runat="server" CssClass="form-horizontal" DataSourceID="objAluno" DefaultMode="Insert">
                 <InsertItemTemplate>
-                    Id:
-                    <asp:TextBox Text='<%# Bind("Id") %>' runat="server" ID="IdTextBox" /><br />
-                    aluno_Mat:
-                    <asp:TextBox Text='<%# Bind("aluno_Mat") %>' runat="server" ID="aluno_MatTextBox" /><br />
-                    aluno_Nome:
-                    <asp:TextBox Text='<%# Bind("aluno_Nome") %>' runat="server" ID="aluno_NomeTextBox" /><br />
-                    aluno_TotCred:
-                    <asp:TextBox Text='<%# Bind("aluno_TotCred") %>' runat="server" ID="aluno_TotCredTextBox" /><br />
-                    aluno_DataNasc:
-                    <asp:TextBox Text='<%# Bind("aluno_DataNasc") %>' runat="server" ID="aluno_DataNascTextBox" /><br />
-                    aluno_MGP:
-                    <asp:TextBox Text='<%# Bind("aluno_MGP") %>' runat="server" ID="aluno_MGPTextBox" /><br />
-                    aluno_CodCurso:
-                    <asp:TextBox Text='<%# Bind("aluno_CodCurso") %>' runat="server" ID="aluno_CodCursoTextBox" /><br />
-                    <asp:LinkButton runat="server" Text="Inserir" CommandName="Insert" ID="InsertButton" CausesValidation="True" />&nbsp;<asp:LinkButton runat="server" Text="Cancelar" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Nome:</label>
+                        <div class="col-sm-9">
+                            <asp:TextBox Text='<%# Bind("aluno_Nome") %>' CssClass="form-control" runat="server" ID="aluno_NomeTextBox" /><br />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Data de Nascimento:</label>
+                        <div class="col-sm-9">
+                            <asp:TextBox Text='<%# Bind("aluno_DataNasc") %>' CssClass="form-control" runat="server" ID="aluno_DataNascTextBox" /><br />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Curso:</label>
+                        <div class="col-sm-9">
+                            <asp:DropDownList Text='<%# Bind("aluno_CodCurso") %>' ID="DropDownList1" runat="server" DataSourceID="objCurso" DataTextField="curso_Nome" DataValueField="curso_Cod"></asp:DropDownList>
+                            <asp:ObjectDataSource runat="server" ID="objCurso" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.CursoController"></asp:ObjectDataSource>
+                        </div>
+                    </div>
+                    
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Sexo:</label>
+                         <div class="col-sm-9">
+                             <asp:RadioButtonList Text='<%# Bind("aluno_Sexo") %>' ID="RadioButtonList1" CssClass="radio-custom radio-default radio-inline" runat="server">
+                                 <asp:ListItem Text="Masculino" Value="M"></asp:ListItem>
+                                 <asp:ListItem Text="Feminino" Value="F"></asp:ListItem>
+                             </asp:RadioButtonList>
+                         </div>
+                    </div>
+
+                     <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <asp:LinkButton runat="server" CssClass="btn btn-primary" Text="Insert" CommandName="Insert" ID="LinkButton1" CausesValidation="True" />
+                            <asp:LinkButton runat="server" CssClass="btn btn-danger" Text="Cancel"  CommandName="Cancel" ID="LinkButton2" CausesValidation="False" />
+                        </div>
+                    </div>
                 </InsertItemTemplate>
-                <ItemTemplate>
-                    Id:
-                    <asp:Label Text='<%# Bind("Id") %>' runat="server" ID="IdLabel" /><br />
-                    aluno_Mat:
-                    <asp:Label Text='<%# Bind("aluno_Mat") %>' runat="server" ID="aluno_MatLabel" /><br />
-                    aluno_Nome:
-                    <asp:Label Text='<%# Bind("aluno_Nome") %>' runat="server" ID="aluno_NomeLabel" /><br />
-                    aluno_TotCred:
-                    <asp:Label Text='<%# Bind("aluno_TotCred") %>' runat="server" ID="aluno_TotCredLabel" /><br />
-                    aluno_DataNasc:
-                    <asp:Label Text='<%# Bind("aluno_DataNasc") %>' runat="server" ID="aluno_DataNascLabel" /><br />
-                    aluno_MGP:
-                    <asp:Label Text='<%# Bind("aluno_MGP") %>' runat="server" ID="aluno_MGPLabel" /><br />
-                    aluno_CodCurso:
-                    <asp:Label Text='<%# Bind("aluno_CodCurso") %>' runat="server" ID="aluno_CodCursoLabel" /><br />
-                    <asp:LinkButton runat="server" Text="Novo" CommandName="New" ID="NewButton" CausesValidation="False" />
-                </ItemTemplate>
             </asp:FormView>
             <asp:ObjectDataSource runat="server" ID="objAluno" DataObjectTypeName="SisAcad.Model.Aluno" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.AlunoController"></asp:ObjectDataSource>
         </div>
       </div>
       <!-- End Panel Header -->
     </div>
-  </div>
   <!-- End Page -->
 </asp:Content>

@@ -9,8 +9,9 @@ namespace SisAcad.Model {
         public int aluno_Mat { get; set; }
         public string aluno_Nome { get; set; }
         public int aluno_TotCred { get; set; }
-        public DateTime aluno_DataNasc { get; set; }
+        public string aluno_DataNasc { get; set; }
         public decimal aluno_MGP { get; set; }
         public int aluno_CodCurso { get; set; }
+        public char aluno_Sexo { get; set; }
     }
 }

@@ -7,27 +7,33 @@ using System.Web;
 namespace SisAcad.Model {
     public class AlunoDAL {
         SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SisAcadDB"].ConnectionString);
-        //Falta implementar a conexão
-
         private SqlCommand cmd;
         String query;
 
         public void Insert(Aluno aluno) {
+            string mat = "20160";
             try {
                 con.Open();
-                query = @"INSERT INTO Aluno (aluno_Mat, aluno_Nome, aluno_TotCred, aluno_DataNasc, aluno_MGP, aluno_CodCurso) 
-                                        VALUES (@mat, @nome, @totalCred, @dataNasc, @mgp, @codCurso)";
+                query = @"INSERT INTO Aluno (aluno_Mat, aluno_Nome, aluno_TotCred, aluno_DataNasc, aluno_MGP, aluno_CodCurso, aluno_sexo) 
+                                        VALUES (@mat, @nome, @totalCred, @dataNasc, @mgp, @codCurso, @sexo)";
+
+                SqlCommand getTotal = new SqlCommand("SELECT COUNT(*) FROM Aluno", con);
+                string total = Convert.ToString(getTotal.ExecuteScalar());
+                mat += total;
+
+
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@mat", aluno.aluno_Mat);
+                cmd.Parameters.AddWithValue("@mat", Convert.ToInt32(mat));
                 cmd.Parameters.AddWithValue("@nome", aluno.aluno_Nome);
-                cmd.Parameters.AddWithValue("@totalCred", aluno.aluno_TotCred);
+                cmd.Parameters.AddWithValue("@totalCred", 24);
                 cmd.Parameters.AddWithValue("@dataNasc", aluno.aluno_DataNasc);
-                cmd.Parameters.AddWithValue("@mgp", aluno.aluno_MGP);
+                cmd.Parameters.AddWithValue("@mgp", 0);
                 cmd.Parameters.AddWithValue("@codCurso", aluno.aluno_CodCurso);
+                cmd.Parameters.AddWithValue("@sexo", aluno.aluno_Sexo);
                 cmd.ExecuteNonQuery();
             }
-            catch {
-                throw new Exception("Erro ao cadastrar aluno.");
+            catch (Exception e) {
+                throw new Exception("Erro ao cadastrar aluno. " + e.Message);
             }
             finally {
                 con.Close();
@@ -55,15 +61,14 @@ namespace SisAcad.Model {
         public void Update(Aluno aluno) {
             try {
                 con.Open();
-                query = @"UPDATE Aluno SET aluno_Mat = @mat, aluno_Nome = @nome, aluno_TotCred = @totalCred, aluno_DataNasc = @dataNasc, aluno_MGP = @mgp, 
-                                           aluno_CodCurso = @codCurso";
+                query = @"UPDATE Aluno SET aluno_Nome = @nome, aluno_TotCred = @totalCred, aluno_DataNasc = @dataNasc, 
+                                           aluno_CodCurso = @codCurso, aluno_Sexo = @sexo WHERE aluno_Mat = @mat";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@mat", aluno.aluno_Mat);
                 cmd.Parameters.AddWithValue("@nome", aluno.aluno_Nome);
-                cmd.Parameters.AddWithValue("@totalCred", aluno.aluno_TotCred);
                 cmd.Parameters.AddWithValue("@dataNasc", aluno.aluno_DataNasc);
-                cmd.Parameters.AddWithValue("@mgp", aluno.aluno_MGP);
                 cmd.Parameters.AddWithValue("@codCurso", aluno.aluno_CodCurso);
+                cmd.Parameters.AddWithValue("@sexo", aluno.aluno_Sexo);
                 cmd.ExecuteNonQuery();
             }
             catch {
@@ -93,7 +98,7 @@ namespace SisAcad.Model {
                 while (dr.Read()) {
                     aluno.aluno_Mat = Convert.ToInt16("aluno_Mat");
                     aluno.aluno_Nome = Convert.ToString("aluno_Nome");
-                    aluno.aluno_DataNasc = Convert.ToDateTime("aluno_DataNasc");
+                    aluno.aluno_DataNasc = dr["aluno_DataNasc"].ToString();
                     aluno.aluno_MGP = Convert.ToDecimal("aluno_MGP");
                     aluno.aluno_TotCred = Convert.ToInt16("aluno_TotCred");
                     aluno.aluno_CodCurso = Convert.ToInt16("aluno_CodCurso");
@@ -121,7 +126,7 @@ namespace SisAcad.Model {
                 while (dr.Read()) {
                     aluno.aluno_Mat = Convert.ToInt16("aluno_Mat");
                     aluno.aluno_Nome = Convert.ToString("aluno_Nome");
-                    aluno.aluno_DataNasc = Convert.ToDateTime("aluno_DataNasc");
+                    aluno.aluno_DataNasc = dr["aluno_DataNasc"].ToString();
                     aluno.aluno_MGP = Convert.ToDecimal("aluno_MGP");
                     aluno.aluno_TotCred = Convert.ToInt16("aluno_TotCred");
                     aluno.aluno_CodCurso = Convert.ToInt16("aluno_CodCurso");
