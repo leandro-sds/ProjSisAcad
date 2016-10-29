@@ -15,7 +15,10 @@
                     <asp:BoundField DataField="curso_Cod" HeaderText="Código" SortExpression="curso_Cod" ReadOnly="True"></asp:BoundField>
                     <asp:BoundField DataField="curso_TotCred" HeaderText="Créditos" SortExpression="curso_TotCred"></asp:BoundField>
                     <asp:BoundField DataField="curso_Nome" HeaderText="Nome" SortExpression="curso_Nome"></asp:BoundField>
-                    <asp:BoundField DataField="curso_IdProf" HeaderText="Professor" SortExpression="curso_IdProf" ApplyFormatInEditMode="True"></asp:BoundField>
+                    <asp:BoundField DataField="curso_IdProf" HeaderText="Professor" SortExpression="curso_IdProf"></asp:BoundField>
+                    <asp:TemplateField>
+
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
             <asp:ObjectDataSource runat="server" ID="objCurso" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.CursoController" DataObjectTypeName="SisAcad.Model.Curso" DeleteMethod="Delete" UpdateMethod="Update">
