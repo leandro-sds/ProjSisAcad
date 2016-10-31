@@ -25,3 +25,4 @@ C:\Users\2141109404\Documents\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bi
 C:\Users\2141109404\Documents\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\System.Web.Http.WebHost.xml
 C:\Users\2141109404\Documents\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.dll
 C:\Users\2141109404\Documents\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.pdb
+C:\Users\2141109404\Documents\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.csprojResolveAssemblyReference.cache

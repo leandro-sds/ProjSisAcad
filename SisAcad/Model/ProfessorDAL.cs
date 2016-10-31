@@ -129,12 +129,33 @@ namespace SisAcad.Model {
             return lista;
         }
 
+        public Professor Obter(int idProf) {
+            try
+            {
+                con.Open();
+                cmd = new SqlCommand("SELECT prof_Nome FROM Professor WHERE prof_Id = @id ", con);
+                cmd.Parameters.AddWithValue("@id", idProf);
+                SqlDataReader dr = cmd.ExecuteReader();
+                Professor prof = new Professor();
+                if (dr.Read())
+                {
+                
+                prof.prof_Nome = dr["prof_Nome"].ToString();
+
+                }
+                return prof;
 
 
 
-
-
-
-
+            }
+            catch (Exception e)
+            {
+                throw new Exception("erro." + e.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

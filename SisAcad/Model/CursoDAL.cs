@@ -56,6 +56,11 @@ namespace SisAcad.Model {
                 cmd.Parameters.AddWithValue("@nome", curso.curso_Nome);
                 cmd.Parameters.AddWithValue("@totCred", curso.curso_TotCred);
                 cmd.Parameters.AddWithValue("@idProf", curso.curso_IdProf);
+
+                new ProfessorDAL().Update(curso.Professor);
+
+              
+
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e) {
@@ -130,8 +135,8 @@ namespace SisAcad.Model {
                 }
                 return lista;
             }
-            catch {
-                throw new Exception("Erro ao listar alunos.");
+            catch (Exception e) {
+                throw new Exception("Erro ao listar alunos. " + e.Message);
 
             }
             finally {

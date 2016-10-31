@@ -16,8 +16,10 @@
                     <asp:BoundField DataField="curso_TotCred" HeaderText="Créditos" SortExpression="curso_TotCred"></asp:BoundField>
                     <asp:BoundField DataField="curso_Nome" HeaderText="Nome" SortExpression="curso_Nome"></asp:BoundField>
                     <asp:BoundField DataField="curso_IdProf" HeaderText="Professor" SortExpression="curso_IdProf"></asp:BoundField>
-                    <asp:TemplateField>
-
+                    <asp:TemplateField HeaderText="Professor" SortExpression="curso_IdProf">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# Bind("Professor.prof_Nome") %>' runat="server" ID="nomeProf"></asp:Label>
+                        </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
