@@ -164,7 +164,7 @@
     <Content Include="View\assets\vendor\slick-carousel\fonts\slick.ttf" />
     <Content Include="View\assets\vendor\slick-carousel\fonts\slick.woff" />
     <Content Include="View\assets\vendor\toastr\toastr.js.map" />
-    <Content Include="View\cadastrarProfessor.aspx" />
+    <Content Include="View\Professor.aspx" />
     <Content Include="View\Example.aspx" />
     <Content Include="View\listarCurso.aspx" />
     <Content Include="View\Master.Master" />
@@ -1986,8 +1986,8 @@
     <Content Include="View\assets\vendor\x-editable\images\loading.gif" />
     <Content Include="View\assets\vendor\x-editable\x-editable.css" />
     <Content Include="View\assets\vendor\x-editable\x-editable.min.css" />
-    <Content Include="View\cadastrarAluno.aspx" />
-    <Content Include="View\cadastrarCurso.aspx" />
+    <Content Include="View\Aluno.aspx" />
+    <Content Include="View\Curso.aspx" />
     <Content Include="View\listarAluno.aspx" />
     <Content Include="View\listarProfessor.aspx" />
     <Content Include="Web.config" />
@@ -2019,26 +2019,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="View\cadastrarAluno.aspx.cs">
-      <DependentUpon>cadastrarAluno.aspx</DependentUpon>
+    <Compile Include="View\Aluno.aspx.cs">
+      <DependentUpon>Aluno.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\cadastrarAluno.aspx.designer.cs">
-      <DependentUpon>cadastrarAluno.aspx</DependentUpon>
+    <Compile Include="View\Aluno.aspx.designer.cs">
+      <DependentUpon>Aluno.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\cadastrarCurso.aspx.cs">
-      <DependentUpon>cadastrarCurso.aspx</DependentUpon>
+    <Compile Include="View\Curso.aspx.cs">
+      <DependentUpon>Curso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\cadastrarCurso.aspx.designer.cs">
-      <DependentUpon>cadastrarCurso.aspx</DependentUpon>
+    <Compile Include="View\Curso.aspx.designer.cs">
+      <DependentUpon>Curso.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\cadastrarProfessor.aspx.cs">
-      <DependentUpon>cadastrarProfessor.aspx</DependentUpon>
+    <Compile Include="View\Professor.aspx.cs">
+      <DependentUpon>Professor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\cadastrarProfessor.aspx.designer.cs">
-      <DependentUpon>cadastrarProfessor.aspx</DependentUpon>
+    <Compile Include="View\Professor.aspx.designer.cs">
+      <DependentUpon>Professor.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Example.aspx.cs">
       <DependentUpon>Example.aspx</DependentUpon>

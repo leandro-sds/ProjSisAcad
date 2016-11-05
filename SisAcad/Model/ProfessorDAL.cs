@@ -33,25 +33,17 @@ namespace SisAcad.Model {
             }
         }
 
-        /*private int getTotal() {
-            query = "SELECT COUNT(*) FROM Professor";
-            cmd = new SqlCommand(query, con);
-            int total = Convert.ToInt32(cmd.ExecuteScalar());
-            return total;
-            
-        }*/
-
         public void Update(Professor prof) {
             try {
                 con.Open();
-                query = "UPDATE Professor SET prof_Nome = @nome WHERE prof_Id = @id";
+                query = "UPDATE Professor SET prof_Nome = @nome WHERE prof_Mat = @mat";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@nome", prof.prof_Nome);
-                cmd.Parameters.AddWithValue("@id", prof.prof_Id);
+                cmd.Parameters.AddWithValue("@mat", prof.prof_Mat);
                 cmd.ExecuteNonQuery();
             }
-            catch {
-                throw new Exception("Erro ao atualizar professor");
+            catch (Exception e) {
+                throw new Exception("Erro ao atualizar professor" + e.Message);
             }
             finally {
                 con.Close();
@@ -74,27 +66,23 @@ namespace SisAcad.Model {
             }
         }
 
-        public List<Professor> Listar(string mat, string nome) {
+        public Professor GetProf(int id) {
             try {
                 con.Open();
-                query = @"SELECT * FROM Cursos WHERE
-                        (@mat IS NULL OR prof_Mat = @mat) AND 
-                        (@nome is NULL or curso_Nome = @nome)";
-                cmd.Parameters.AddWithValue("@mat", mat);
-                cmd.Parameters.AddWithValue("@nome", nome);
+                query = "SELECT * FROM Professor WHERE prof_Id = @id";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@id",id);
                 SqlDataReader dr = cmd.ExecuteReader();
-                List<Professor> lista = new List<Professor>();
                 Professor prof = new Professor();
 
-                while (dr.Read()) {
-                    prof.prof_Mat = Convert.ToString("prof_Mat");
-                    prof.prof_Nome = Convert.ToString("prof_Nome");
-                    lista.Add(prof);
+                if (dr.Read()) {
+                    prof.prof_Mat = dr["prof_Mat"].ToString();
+                    prof.prof_Nome = dr["prof_Nome"].ToString();
                 }
-                return lista;
+                return prof;
             }
-            catch {
-                throw new Exception("Erro ao listar professores.");
+            catch (Exception e) {
+                throw new Exception("Erro ao listar professores." + e.Message);
 
             }
             finally {

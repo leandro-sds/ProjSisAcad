@@ -51,7 +51,7 @@ namespace SisAcad.Model {
         public void Delete(int id) {
             try {
                 con.Open();
-                query = "DELETE * FROM Periodo_Letivo WHERE pl_Id = @id";
+                query = "DELETE FROM Periodo_Letivo WHERE pl_Id = @id";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();

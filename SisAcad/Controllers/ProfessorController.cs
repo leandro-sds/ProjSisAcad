@@ -32,5 +32,10 @@ namespace SisAcad.Controllers
         public void Insert(Professor objProf) {
             professorDAL.Insert(objProf);
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public Professor GetProf(int id) {
+            return professorDAL.GetProf(id);
+        }
     }
 }

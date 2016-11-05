@@ -32,5 +32,10 @@ namespace SisAcad.Controllers
         public void Delete(Curso objCurso) {
             cursoDal.Delete(objCurso);
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public Curso GetCurso(int cod) {
+            return cursoDal.GetCurso(cod);
+        }
     }
 }

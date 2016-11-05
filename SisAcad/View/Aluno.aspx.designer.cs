@@ -10,7 +10,16 @@
 namespace SisAcad.View {
     
     
-    public partial class listarCurso {
+    public partial class cadastrarAluno {
+        
+        /// <summary>
+        /// Controle lblHeader.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHeader;
         
         /// <summary>
         /// Controle FormView1.
@@ -22,12 +31,12 @@ namespace SisAcad.View {
         protected global::System.Web.UI.WebControls.FormView FormView1;
         
         /// <summary>
-        /// Controle objCurso.
+        /// Controle objAluno.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource objCurso;
+        protected global::System.Web.UI.WebControls.ObjectDataSource objAluno;
     }
 }

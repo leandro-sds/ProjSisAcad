@@ -34,5 +34,10 @@ namespace SisAcad.Controllers
         public void Delete(Aluno objAluno) {
             alunoDAL.Delete(objAluno);
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public Aluno GetAluno(int alunoId) {
+            return alunoDAL.GetAluno(alunoId);
+        }
     }
 }

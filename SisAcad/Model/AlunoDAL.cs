@@ -49,8 +49,8 @@ namespace SisAcad.Model {
                 cmd.Parameters.AddWithValue("@mat", aluno.aluno_Mat);
                 cmd.ExecuteNonQuery();
             }
-            catch {
-                throw new Exception("Erro ao excluir aluno.");
+            catch (Exception e) {
+                throw new Exception("Erro ao excluir aluno." + e.Message);
             }
             finally {
                 con.Close();
@@ -62,17 +62,18 @@ namespace SisAcad.Model {
             try {
                 con.Open();
                 query = @"UPDATE Aluno SET aluno_Nome = @nome, aluno_TotCred = @totalCred, aluno_DataNasc = @dataNasc, 
-                                           aluno_CodCurso = @codCurso, aluno_Sexo = @sexo WHERE aluno_Mat = @mat";
+                                           aluno_CodCurso = @codCurso, aluno_Sexo = @sexo WHERE aluno_mat = @mat";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@mat", aluno.aluno_Mat);
                 cmd.Parameters.AddWithValue("@nome", aluno.aluno_Nome);
+                cmd.Parameters.AddWithValue("@totalCred", aluno.aluno_TotCred);
                 cmd.Parameters.AddWithValue("@dataNasc", aluno.aluno_DataNasc);
                 cmd.Parameters.AddWithValue("@codCurso", aluno.aluno_CodCurso);
                 cmd.Parameters.AddWithValue("@sexo", aluno.aluno_Sexo);
                 cmd.ExecuteNonQuery();
             }
-            catch {
-                throw new Exception("Erro ao atualizar aluno.");
+            catch (Exception e) {
+                throw new Exception("Erro ao atualizar aluno." + e.Message);
             }
             finally {
                 con.Close();
@@ -80,31 +81,24 @@ namespace SisAcad.Model {
 
         }
 
-        public List<Aluno> Listar(string nome, string mat, string codCurso) {
+        public Aluno GetAluno(int id) {
             try {
                 con.Open();
-                cmd = new SqlCommand(@"SELECT * 
-                                        FROM Aluno 
-                                        WHERE (@mat is null or aluno_Mat = @mat) AND 
-                                        (@nome is NULL or aluno_Nome = @nome) AND
-                                        (@codCurso is NULL or aluno_CodCurso = @codCurso)", con);
-                /*cmd.Parameters.AddWithValue("@mat", mat);
-                cmd.Parameters.AddWithValue("@nome", nome);
-                cmd.Parameters.AddWithValue("@codCurso", codCurso);*/
+                cmd = new SqlCommand(@"SELECT * FROM Aluno WHERE Id = @id", con);
+                cmd.Parameters.AddWithValue("@id", id);
                 SqlDataReader dr = cmd.ExecuteReader();
-                List<Aluno> lista = new List<Aluno>();
-                Aluno aluno = new Aluno();
+                Aluno al = new Aluno();
 
-                while (dr.Read()) {
-                    aluno.aluno_Mat = Convert.ToInt16("aluno_Mat");
-                    aluno.aluno_Nome = Convert.ToString("aluno_Nome");
-                    aluno.aluno_DataNasc = dr["aluno_DataNasc"].ToString();
-                    aluno.aluno_MGP = Convert.ToDecimal("aluno_MGP");
-                    aluno.aluno_TotCred = Convert.ToInt16("aluno_TotCred");
-                    aluno.aluno_CodCurso = Convert.ToInt16("aluno_CodCurso");
-                    lista.Add(aluno);
+                if (dr.Read()) {
+                    al.Id = Convert.ToInt32(dr["Id"].ToString());
+                    al.aluno_Mat = Convert.ToInt32(dr["aluno_Mat"].ToString());
+                    al.aluno_Nome = dr["aluno_Nome"].ToString();
+                    al.aluno_DataNasc = dr["aluno_DataNasc"].ToString();
+                    al.aluno_MGP = Convert.ToDecimal(dr["aluno_MGP"].ToString());
+                    al.aluno_TotCred = Convert.ToInt16(dr["aluno_TotCred"].ToString());
+                    al.aluno_CodCurso = Convert.ToInt16(dr["aluno_CodCurso"].ToString());
                 }
-                return lista;
+                return al;
             }
             catch {
                 throw new Exception("Erro ao listar alunos.");
@@ -121,15 +115,17 @@ namespace SisAcad.Model {
                 cmd = new SqlCommand(@"SELECT * FROM Aluno", con);
                 SqlDataReader dr = cmd.ExecuteReader();
                 List<Aluno> lista = new List<Aluno>();
-                Aluno aluno = new Aluno();
+               
 
                 while (dr.Read()) {
-                    aluno.aluno_Mat = Convert.ToInt16("aluno_Mat");
-                    aluno.aluno_Nome = Convert.ToString("aluno_Nome");
+                    Aluno aluno = new Aluno();
+                    aluno.Id = Convert.ToInt32(dr["Id"].ToString());
+                    aluno.aluno_Mat = Convert.ToInt32(dr["aluno_Mat"].ToString());
+                    aluno.aluno_Nome = dr["aluno_Nome"].ToString();
                     aluno.aluno_DataNasc = dr["aluno_DataNasc"].ToString();
-                    aluno.aluno_MGP = Convert.ToDecimal("aluno_MGP");
-                    aluno.aluno_TotCred = Convert.ToInt16("aluno_TotCred");
-                    aluno.aluno_CodCurso = Convert.ToInt16("aluno_CodCurso");
+                    aluno.aluno_MGP = Convert.ToDecimal(dr["aluno_MGP"].ToString());
+                    aluno.aluno_TotCred = Convert.ToInt16(dr["aluno_TotCred"].ToString());
+                    aluno.aluno_CodCurso = Convert.ToInt16(dr["aluno_CodCurso"].ToString());
                     lista.Add(aluno);
                 }
                 return lista;

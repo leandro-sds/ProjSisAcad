@@ -55,12 +55,7 @@ namespace SisAcad.Model {
                 cmd.Parameters.AddWithValue("@codCurso", curso.curso_Cod);
                 cmd.Parameters.AddWithValue("@nome", curso.curso_Nome);
                 cmd.Parameters.AddWithValue("@totCred", curso.curso_TotCred);
-                cmd.Parameters.AddWithValue("@idProf", curso.curso_IdProf);
-
-                new ProfessorDAL().Update(curso.Professor);
-
-              
-
+                cmd.Parameters.AddWithValue("@idProf", curso.curso_IdProf);           
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e) {
@@ -87,30 +82,25 @@ namespace SisAcad.Model {
             }
         }
 
-        public List<Curso> Listar(int prof, string nome) {
+        public Curso GetCurso(int cod) {
             try {
                 con.Open();
-                query = @"SELECT * FROM Cursos WHERE
-                        (@prof = 0 OR curso_IdProf = @prof) AND 
-                        (@nome is NULL or curso_Nome = @nome)";
-                cmd.Parameters.AddWithValue("@prof", prof);
-                cmd.Parameters.AddWithValue("@nome", nome);
+                query = "SELECT * FROM Cursos WHERE curso_Cod = @cod";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@cod", cod);
                 SqlDataReader dr = cmd.ExecuteReader();
-                List<Curso> lista = new List<Curso>();
                 Curso curso = new Curso();
                 
-                while(dr.Read()) {
-                    curso.curso_Cod = Convert.ToInt32("curso_Cod");
-                    curso.curso_IdProf = Convert.ToInt32("curso_IdProf");
-                    curso.curso_Nome = Convert.ToString("curso_Nome");
-                    curso.curso_TotCred = Convert.ToInt32("curso_TotCred");
-                    lista.Add(curso);
+                if (dr.Read()) {
+                    curso.curso_Cod = Convert.ToInt32(dr["curso_Cod"].ToString());
+                    curso.curso_IdProf = Convert.ToInt32(dr["curso_IdProf"].ToString());
+                    curso.curso_Nome = dr["curso_Nome"].ToString();
+                    curso.curso_TotCred = Convert.ToInt32(dr["curso_TotCred"].ToString());
                 }
-                return lista;
+                return curso;
             }
-            catch {
-                throw new Exception("Erro ao listar alunos.");
-
+            catch (Exception e) {
+                throw new Exception("Erro ao listar alunos." + e.Message);
             }
             finally {
                 con.Close();
