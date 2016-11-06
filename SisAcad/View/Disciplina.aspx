@@ -13,41 +13,48 @@
       <!-- Panel Content -->
       <div class="panel">
         <div class="panel-body">
+            <asp:FormView ID="FormView1" runat="server" DataSourceID="objDisc" DefaultMode="Insert">
                 <%-- UPDATE --%>
                 <EditItemTemplate>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Código</label>
                         <div class="col-sm-9">
+                            <asp:TextBox Text='<%# Bind("disc_Cod") %>' CssClass="form-control" Enabled="false" runat="server" ID="disc_CodTextBox" /><br />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Nome</label>
                         <div class="col-sm-9">
+                            <asp:TextBox Text='<%# Bind("disc_Nome") %>' CssClass="form-control" runat="server" ID="disc_NomeTextBox" /><br />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Créditos</label>
                         <div class="col-sm-9">
+                            <asp:TextBox Text='<%# Bind("disc_Cred") %>' CssClass="form-control" runat="server" ID="disc_CredTextBox" /><br />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Horas Obrigatórias</label>
                         <div class="col-sm-9">
+                            <asp:TextBox Text='<%# Bind("disc_HoraObr") %>' CssClass="form-control" runat="server" ID="disc_HoraObrTextBox" /><br />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Limite de Faltas</label>
                         <div class="col-sm-9">
+                            <asp:TextBox Text='<%# Bind("disc_Falta") %>' CssClass="form-control" runat="server" ID="disc_FaltaTextBox" /><br />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Tipo</label>
                         <div class="col-sm-9">
+                            <asp:RadioButtonList Text='<%# Bind("disc_Tipo") %>' CssClass="radio-custom radio-default" ID="RadioButtonList1" runat="server">
                                 <asp:ListItem Text="Presencial" Value="Presencial" ></asp:ListItem>
                                 <asp:ListItem Text="EAD" Value="EAD"></asp:ListItem>
                             </asp:RadioButtonList>
@@ -56,6 +63,8 @@
                     
                     <div class="form-group">
                         <div class="col-sm-9 col-sm-offset-3">
+                            <asp:LinkButton CssClass="btn btn-primary" runat="server" Text="Atualizar" CommandName="Update" ID="UpdateButton" CausesValidation="True" />
+                            <asp:LinkButton CssClass="btn btn-danger" runat="server" Text="Cancelar" CommandName="Cancel" ID="UpdateCancelButton" CausesValidation="False" />
                         </div>
                     </div>                    
                 </EditItemTemplate>
@@ -66,24 +75,28 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Nome</label>
                         <div class="col-sm-9">
+                            <asp:TextBox Text='<%# Bind("disc_Nome") %>' CssClass="form-control" runat="server" ID="disc_NomeTextBox" /><br />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Créditos</label>
                         <div class="col-sm-9">
+                            <asp:TextBox Text='<%# Bind("disc_Cred") %>' CssClass="form-control" runat="server" ID="disc_CredTextBox" /><br />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Horas Obrigatórias</label>
                         <div class="col-sm-9">
+                            <asp:TextBox Text='<%# Bind("disc_HoraObr") %>' CssClass="form-control" runat="server" ID="disc_HoraObrTextBox" /><br />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Limite de Faltas</label>
                         <div class="col-sm-9">
+                            <asp:TextBox Text='<%# Bind("disc_Falta") %>' CssClass="form-control" runat="server" ID="disc_FaltaTextBox" /><br />
                         </div>
                     </div>
 
@@ -93,11 +106,13 @@
                             <asp:RadioButtonList Text='<%# Bind("disc_Tipo") %>' CssClass="radio-custom radio-default" ID="RadioButtonList1" runat="server">
                                 <asp:ListItem Text="Presencial" Value="Presencial" ></asp:ListItem>
                                 <asp:ListItem Text="EAD" Value="EAD"></asp:ListItem>
+                            </asp:RadioButtonList><br />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-9 col-sm-offset-3">
+                            <asp:LinkButton CssClass="btn btn-primary" runat="server" Text="Cadastrar" CommandName="Insert" ID="InsertButton" CausesValidation="True" />
                             <asp:LinkButton CssClass="btn btn-danger" runat="server" Text="Cancelar" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
                         </div>
                     </div>
