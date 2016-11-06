@@ -10,7 +10,7 @@
     <!-- End Panel Header -->
     <!-- Page Content -->
     <div class="page-content container-fluid">
-      
+      <!-- Panel Content -->
       <div class="panel">
         <div class="panel-body">
             <!-- Conteudo aqui -->

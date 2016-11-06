@@ -13,10 +13,9 @@ namespace SisAcad.Model {
         public void Insert(Disciplina disc) {
             try {
                 con.Open();
-                query = @"INSERT INTO Disciplina (disc_Cod, disc_Nome, disc_Cred, disc_HoraObr, disc_Falta, disc_Tipo) 
-                                                 VALUES (@codDisc, @nome, @cred, @hora, @falta";
+                query = @"INSERT INTO Disciplina (disc_Nome, disc_Cred, disc_HoraObr, disc_Falta, disc_Tipo) 
+                                                 VALUES (@nome, @cred, @hora, @falta, @tipo)";
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@codDisc", disc.disc_Cod);
                 cmd.Parameters.AddWithValue("@nome", disc.disc_Nome);
                 cmd.Parameters.AddWithValue("@cred", disc.disc_Cred);
                 cmd.Parameters.AddWithValue("@hora", disc.disc_HoraObr);
@@ -24,8 +23,8 @@ namespace SisAcad.Model {
                 cmd.Parameters.AddWithValue("@tipo", disc.disc_Tipo);
                 cmd.ExecuteNonQuery();
             }
-            catch {
-                throw new Exception("Erro ao cadastrar disciplina.");
+            catch (Exception e) {
+                throw new Exception("Erro ao cadastrar disciplina." + e.Message);
             }
             finally {
                 con.Close();
@@ -35,8 +34,8 @@ namespace SisAcad.Model {
         public void Update(Disciplina disc) {
             try {
                 con.Open();
-                query = @"UPDATE Cursos SET disc_Cod = @codDisc, disc_Nome = @nome, disc_Cred = @cred, disc_HoraObr = @hora,
-                                        disc_falta = @falta, disc_Tipo = @tipo";
+                query = @"UPDATE Disciplina SET disc_Nome = @nome, disc_Cred = @cred, disc_HoraObr = @hora,
+                                        disc_falta = @falta, disc_Tipo = @tipo WHERE disc_Cod = @codDisc";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@codDisc", disc.disc_Cod);
                 cmd.Parameters.AddWithValue("@nome", disc.disc_Nome);
@@ -46,20 +45,20 @@ namespace SisAcad.Model {
                 cmd.Parameters.AddWithValue("@tipo", disc.disc_Tipo);
                 cmd.ExecuteNonQuery();
             }
-            catch {
-                throw new Exception("Erro ao atualizar disciplina.");
+            catch (Exception e) {
+                throw new Exception("Erro ao atualizar disciplina." + e.Message);
             }
             finally {
                 con.Close();
             }
         }
 
-        public void Delete(int codDisc) {
+        public void Delete(Disciplina disc) {
             try {
                 con.Open();
-                query = "DELETE * FROM Disciplina WHERE disc_Cod = @codDisc";
+                query = "DELETE FROM Disciplina WHERE disc_Cod = @codDisc";
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@codCurso", codDisc);
+                cmd.Parameters.AddWithValue("@codCurso", disc.disc_Cod);
                 cmd.ExecuteNonQuery();
             }
             catch {
@@ -70,31 +69,56 @@ namespace SisAcad.Model {
             }
         }
 
-        public List<Disciplina> Listar(string nome, string tipo) {
+        public List<Disciplina> Listar() {
             try {
                 con.Open();
-                query = @"SELECT * FROM Disciplina WHERE
-                        (@tipo IS NULL OR disc_Tipo = @tipo) AND 
-                        (@nome is NULL or curso_Nome = @nome)";
-                cmd.Parameters.AddWithValue("@prof", tipo);
-                cmd.Parameters.AddWithValue("@nome", nome);
+                query = "SELECT * FROM Disciplina";
+                cmd = new SqlCommand(query, con);
                 SqlDataReader dr = cmd.ExecuteReader();
                 List<Disciplina> lista = new List<Disciplina>();
-                Disciplina disc = new Disciplina();
 
                 while (dr.Read()) {
-                    disc.disc_Cod = Convert.ToInt32("curso_Cod");
-                    disc.disc_Nome = Convert.ToString("disc_Nome");
-                    disc.disc_Tipo = Convert.ToString("disc_Tipo");
-                    disc.disc_HoraObr = Convert.ToInt32("disc_HoraObr");
-                    disc.disc_Cred = Convert.ToInt32("disc_Cred");
-                    disc.disc_Falta = Convert.ToInt32("disc_Falta");
+                    Disciplina disc = new Disciplina();
+                    disc.disc_Cod = Convert.ToInt32(dr["disc_Cod"].ToString());
+                    disc.disc_Nome = dr["disc_Nome"].ToString();
+                    disc.disc_Tipo = dr["disc_Tipo"].ToString();
+                    disc.disc_HoraObr = Convert.ToInt32(dr["disc_HoraObr"].ToString());
+                    disc.disc_Cred = Convert.ToInt32(dr["disc_Cred"].ToString());
+                    disc.disc_Falta = Convert.ToInt32(dr["disc_Falta"].ToString());
                     lista.Add(disc);
                 }
                 return lista;
             }
-            catch {
-                throw new Exception("Erro ao listar disciplinas.");
+            catch (Exception e) {
+                throw new Exception("Erro ao listar disciplinas." + e.Message);
+            }
+            finally {
+                con.Close();
+            }
+        }
+
+        public Disciplina GetDisc(int cod) {
+            try {
+                con.Open();
+                query = "SELECT * FROM Disciplina WHERE disc_Cod = @cod";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@cod", cod);
+                SqlDataReader dr = cmd.ExecuteReader();
+                Disciplina disc = new Disciplina();
+
+                if (dr.Read()) {
+                    disc.disc_Nome = dr["disc_Nome"].ToString();
+                    disc.disc_Cod = Convert.ToInt32(dr["disc_Cod"].ToString());
+                    disc.disc_Falta = Convert.ToInt32(dr["disc_Falta"].ToString());
+                    disc.disc_Tipo = dr["disc_Tipo"].ToString();
+                    disc.disc_HoraObr = Convert.ToInt32(dr["disc_HoraObr"].ToString());
+                    disc.disc_Cred = Convert.ToInt32(dr["disc_Cred"].ToString());
+                }
+                
+                return disc;
+            }
+            catch (Exception e) {
+                throw new Exception("erro." + e.Message);
             }
             finally {
                 con.Close();

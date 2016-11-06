@@ -50,7 +50,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Curso:</label>
                         <div class="col-sm-9">
-                            <asp:DropDownList Text='<%# Bind("aluno_CodCurso") %>' ID="DropDownList2" CssClass="form-control" runat="server" DataSourceID="objCursoEdit" DataTextField="curso_Nome" DataValueField="curso_Cod"></asp:DropDownList>
+                            <asp:DropDownList Text='<%# Bind("aluno_CodCurso") %>' ID="DropDownList2" CssClass="form-control" runat="server" DataSourceID="objCursoEdit" DataTextField="curso_Nome" DataValueField="curso_Cod"></asp:DropDownList><br />
                             <asp:ObjectDataSource runat="server" ID="objCursoEdit" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.CursoController"></asp:ObjectDataSource>
                         </div>
                     </div>
@@ -58,10 +58,10 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Sexo:</label>
                         <div class="col-sm-9">
-                            <asp:RadioButtonList ID="RadioButtonList2" CssClass="radio-custom radio-inline radio-default"  runat="server">
+                            <asp:RadioButtonList Text='<%# Bind("aluno_Sexo") %>' ID="RadioButtonList1" CssClass="radio-custom radio-inline"  runat="server">
                                 <asp:ListItem Text="Masculino" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Feminino" Value="F"></asp:ListItem>
-                            </asp:RadioButtonList>
+                            </asp:RadioButtonList><br />
                         </div>
                     </div>
 
@@ -97,14 +97,14 @@
                              <asp:RadioButtonList Text='<%# Bind("aluno_Sexo") %>' ID="RadioButtonList1" CssClass="radio-custom radio-default radio-inline" runat="server">
                                  <asp:ListItem Text="Masculino" Value="M"></asp:ListItem>
                                  <asp:ListItem Text="Feminino" Value="F"></asp:ListItem>
-                             </asp:RadioButtonList>
+                             </asp:RadioButtonList><br />
                          </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Curso:</label>
                         <div class="col-sm-9">
-                            <asp:DropDownList Text='<%# Bind("aluno_CodCurso") %>' ID="DropDownList1" CssClass="form-control" runat="server" DataSourceID="objCurso" DataTextField="curso_Nome" DataValueField="curso_Cod"></asp:DropDownList>
+                            <asp:DropDownList Text='<%# Bind("aluno_CodCurso") %>' ID="DropDownList1" CssClass="form-control" runat="server" DataSourceID="objCurso" DataTextField="curso_Nome" DataValueField="curso_Cod"></asp:DropDownList><br />
                             <asp:ObjectDataSource runat="server" ID="objCurso" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.CursoController"></asp:ObjectDataSource>
                         </div>
                     </div>

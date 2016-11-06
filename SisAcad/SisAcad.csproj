@@ -97,6 +97,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="View\Disciplina.aspx" />
+    <Content Include="View\listarDisciplina.aspx" />
     <Content Include="wsNew.asmx" />
     <None Include="Service References\ServiceReference1\wsNew.wsdl" />
     <Content Include="View\assets\data\angular\ui\bootstrap.json" />
@@ -1996,6 +1998,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AlunoController.cs" />
     <Compile Include="Controllers\CursoController.cs" />
+    <Compile Include="Controllers\DisciplinaController.cs" />
     <Compile Include="Controllers\ProfessorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2032,6 +2035,20 @@
     </Compile>
     <Compile Include="View\Curso.aspx.designer.cs">
       <DependentUpon>Curso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Disciplina.aspx.cs">
+      <DependentUpon>Disciplina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Disciplina.aspx.designer.cs">
+      <DependentUpon>Disciplina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\listarDisciplina.aspx.cs">
+      <DependentUpon>listarDisciplina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\listarDisciplina.aspx.designer.cs">
+      <DependentUpon>listarDisciplina.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Professor.aspx.cs">
       <DependentUpon>Professor.aspx</DependentUpon>

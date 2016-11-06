@@ -97,11 +97,12 @@ namespace SisAcad.Model {
                     al.aluno_MGP = Convert.ToDecimal(dr["aluno_MGP"].ToString());
                     al.aluno_TotCred = Convert.ToInt16(dr["aluno_TotCred"].ToString());
                     al.aluno_CodCurso = Convert.ToInt16(dr["aluno_CodCurso"].ToString());
+                    al.aluno_Sexo = Convert.ToChar(dr["aluno_Sexo"].ToString());
                 }
                 return al;
             }
-            catch {
-                throw new Exception("Erro ao listar alunos.");
+            catch (Exception e) {
+                throw new Exception("Erro ao listar alunos." + e.Message);
             }
             finally {
                 con.Close();

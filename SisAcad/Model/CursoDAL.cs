@@ -10,25 +10,6 @@ namespace SisAcad.Model {
         private string query;
         private SqlCommand cmd;
 
-        public void Insert(Curso curso, int idProf) {
-            try {
-                con.Open();
-                query = "INSERT INTO Cursos (curso_Cod, curso_Nome, curso_TotCred, curso_IdProf) VALUES (@codCurso, @nome, @totCred, @idProf)";
-                cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@codCurso", curso.curso_Cod);
-                cmd.Parameters.AddWithValue("@nome", curso.curso_Nome);
-                cmd.Parameters.AddWithValue("@totCred", curso.curso_TotCred);
-                cmd.Parameters.AddWithValue("@idProf", idProf);
-                cmd.ExecuteNonQuery();
-            }
-            catch {
-                throw new Exception("Erro ao cadastrar curso.");
-            }
-            finally {
-                con.Close();
-            }
-        }
-
         public void Insert(Curso curso) {
             try {
                 con.Open();
