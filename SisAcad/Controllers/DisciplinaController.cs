@@ -37,6 +37,12 @@ namespace SisAcad.Controllers
         public Disciplina GetDisc(int cod) {
             return disciplinaDAL.GetDisc(cod);
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Disciplina> Relatorio()
+        {
+            return disciplinaDAL.Relatorio();
+        }
             
     }
 }

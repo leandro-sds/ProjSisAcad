@@ -1,7 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Master.Master" AutoEventWireup="true" CodeBehind="Aluno.aspx.cs" Inherits="SisAcad.View.cadastrarAluno" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
+
+    <asp:ScriptManager ID="ajaxScript" EnablePageMethods="true" EnableScriptGlobalization="true" runat="server"></asp:ScriptManager>
+
     <div class="page-header">
       <h1 class="page-title"> <asp:Label ID="lblHeader" runat="server" Text="Label"></asp:Label> </h1>
     </div>
@@ -37,6 +43,7 @@
                         <label class="col-sm-3 control-label">Data de Nascimento:</label>
                         <div class="col-sm-9">
                             <asp:TextBox Text='<%# Bind("aluno_DataNasc") %>' CssClass="form-control" runat="server" ID="TextBox4" /><br />
+                            <ajax:MaskedEditExtender ID="maskData" runat="server" TargetControlID="TextBox4" Mask="99/99/9999" MaskType="Date"></ajax:MaskedEditExtender>
                         </div>
                     </div>
 

@@ -26,3 +26,5 @@ D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\System.Web.Htt
 D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.dll
 D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.pdb
 D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\obj\Debug\SisAcad.csprojResolveAssemblyReference.cache
+C:\Users\2141109404\Documents\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\AjaxControlToolkit.dll
+C:\Users\2141109404\Documents\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\AjaxMin.dll

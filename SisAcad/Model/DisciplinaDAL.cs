@@ -117,6 +117,39 @@ namespace SisAcad.Model {
             }
         }
 
+        public List<Disciplina> Relatorio()
+        {
+            try
+            {
+                con.Open();
+                query = @"SELECT * FROM Disciplina";
+                cmd = new SqlCommand(query, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Disciplina> lista = new List<Disciplina>();
+
+                while (dr.Read())
+                {
+                    Disciplina disc = new Disciplina();
+                    disc.disc_Cod = Convert.ToInt32(dr["disc_Cod"].ToString());
+                    disc.disc_Nome = dr["disc_Nome"].ToString();
+                    disc.disc_Tipo = dr["disc_Tipo"].ToString();
+                    disc.disc_HoraObr = Convert.ToInt32(dr["disc_HoraObr"].ToString());
+                    disc.disc_Cred = Convert.ToInt32(dr["disc_Cred"].ToString());
+                    disc.disc_Falta = Convert.ToInt32(dr["disc_Falta"].ToString());
+                    lista.Add(disc);
+                }
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro ao listar disciplinas." + e.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public Disciplina GetDisc(int cod) {
             try {
                 con.Open();
