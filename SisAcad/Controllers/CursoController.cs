@@ -19,8 +19,8 @@ namespace SisAcad.Controllers
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Curso> Listar() {
-            return cursoDal.Listar();
+        public List<Curso> Listar(string nome, int id) {
+            return cursoDal.Listar(nome, id);
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]

@@ -10,6 +10,30 @@
       <!-- Panel Header -->
       <div class="panel">
         <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">Nome</label>
+                    <div class="col-sm-4">
+                        <asp:TextBox ID="tbNomePesq" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">Professor</label>
+                    <div class="col-sm-4">
+                        <asp:DropDownList ID="ddlProfPesq" CssClass="form-control" runat="server" DataSourceID="objProfPesq" DataTextField="prof_Nome" DataValueField="prof_Id">
+                            <asp:ListItem Text="Todos" Value="-1" Selected="True"></asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:ObjectDataSource runat="server" ID="objProfPesq" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.ProfessorController"></asp:ObjectDataSource>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1">
+                        <asp:Button ID="btnPesq" CssClass="btn btn-primary" runat="server" Text="Pesquisar" />
+                    </div>
+                </div>
+            </div>
             <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered" DataKeyNames="curso_Cod" AutoGenerateColumns="False" DataSourceID="objCurso">
                 <Columns>
                     <asp:BoundField DataField="curso_Cod" HeaderText="Código" SortExpression="curso_Cod" ReadOnly="True"></asp:BoundField>
@@ -25,6 +49,10 @@
                 </Columns>
             </asp:GridView>
             <asp:ObjectDataSource runat="server" ID="objCurso" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.CursoController" DataObjectTypeName="SisAcad.Model.Curso" DeleteMethod="Delete" UpdateMethod="Update">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="tbNomePesq" PropertyName="Text" Name="nome" Type="String"></asp:ControlParameter>
+                    <asp:ControlParameter ControlID="ddlProfPesq" PropertyName="SelectedValue" Name="id" Type="Int32"></asp:ControlParameter>
+                </SelectParameters>
             </asp:ObjectDataSource>
         </div>
       </div>

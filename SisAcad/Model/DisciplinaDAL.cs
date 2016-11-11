@@ -76,24 +76,20 @@ namespace SisAcad.Model {
                           (@nome IS NULL OR disc_Nome = @nome) AND
                           (@tipo IS NULL OR disc_Tipo = @tipo)";
                 cmd = new SqlCommand(query, con);
-                if (String.IsNullOrEmpty(nome))
-                {
+                
+                if (String.IsNullOrEmpty(nome)) {
                     cmd.Parameters.AddWithValue("@nome", DBNull.Value);
-                }
-                else
-                {
+                } else {
                     cmd.Parameters.AddWithValue("@nome", nome);
                 }
+                
 
-                if (String.IsNullOrEmpty(tipo))
-                {
-                    cmd.Parameters.AddWithValue("@tipo", DBNull.Value);
-                }
-                else
-                {
+                if (String.IsNullOrEmpty(tipo)) {
+                     cmd.Parameters.AddWithValue("@tipo", DBNull.Value);
+                } else {
                     cmd.Parameters.AddWithValue("@tipo", tipo);
                 }
-                
+                                
                 SqlDataReader dr = cmd.ExecuteReader();
                 List<Disciplina> lista = new List<Disciplina>();
 

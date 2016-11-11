@@ -88,11 +88,26 @@ namespace SisAcad.Model {
             }
         }
 
-        public List<Curso> Listar() {
+        public List<Curso> Listar(string nome, int id) {
             try {
                 con.Open();
-                query = @"SELECT * FROM Cursos";
+                query = @"SELECT * FROM Cursos WHERE
+                          (@nome IS NULL OR curso_Nome = @nome) AND
+                          (@id IS NULL OR curso_IdProf = @id)";
                 cmd = new SqlCommand(query, con);
+
+                if (String.IsNullOrEmpty(nome)) {
+                    cmd.Parameters.AddWithValue("@nome", DBNull.Value);
+                } else {
+                    cmd.Parameters.AddWithValue("@nome", nome);
+                }
+
+                if (id == -1) {
+                    cmd.Parameters.AddWithValue("@id", DBNull.Value);
+                } else {
+                    cmd.Parameters.AddWithValue("@id", id);
+                }
+
                 SqlDataReader dr = cmd.ExecuteReader();
                 List<Curso> lista = new List<Curso>();
                
