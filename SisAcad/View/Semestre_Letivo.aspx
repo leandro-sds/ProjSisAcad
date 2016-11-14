@@ -13,7 +13,7 @@
       <!-- Panel Content -->
       <div class="panel">
         <div class="panel-body">
-            <!-- Conteudo aqui -->
+            <asp:FormView ID="FormView1" runat="server"></asp:FormView>
         </div>
       </div>
       <!-- End Panel Content -->

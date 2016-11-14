@@ -104,6 +104,7 @@
     <Content Include="View\Disciplina.aspx" />
     <Content Include="View\listarDisciplina.aspx" />
     <Content Include="View\relatorioDisciplina.aspx" />
+    <Content Include="View\Semestre_Letivo.aspx" />
     <Content Include="wsNew.asmx" />
     <None Include="Service References\ServiceReference1\wsNew.wsdl" />
     <Content Include="View\assets\data\angular\ui\bootstrap.json" />
@@ -2103,6 +2104,13 @@
     </Compile>
     <Compile Include="View\relatorioDisciplina.aspx.designer.cs">
       <DependentUpon>relatorioDisciplina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Semestre_Letivo.aspx.cs">
+      <DependentUpon>Semestre_Letivo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Semestre_Letivo.aspx.designer.cs">
+      <DependentUpon>Semestre_Letivo.aspx</DependentUpon>
     </Compile>
     <Compile Include="wsNew.asmx.cs">
       <DependentUpon>wsNew.asmx</DependentUpon>

@@ -74,20 +74,21 @@ namespace SisAcad.Model {
                         (@pl_DtFim IS NULLS OR @pl_DtFim = DtFim)";
                 cmd = new SqlCommand(query, con);
 
-                if()
+                if (string.IsNullOrEmpty(dtinicio)) {
+                    cmd.Parameters.AddWithValue("@pl_Dtinicio", dtinicio);
+                } else {
+                    cmd.Parameters.AddWithValue("@pl_DtFim", dtfim);
+                }
 
-                cmd.Parameters.AddWithValue("@prof", prof);
-                cmd.Parameters.AddWithValue("@nome", nome);
+                if ()
+
+                
                 SqlDataReader dr = cmd.ExecuteReader();
-                List<Curso> lista = new List<Curso>();
-                Curso curso = new Curso();
+                Periodo_Letivo pl = new Periodo_Letivo(); 
 
                 while (dr.Read()) {
-                    curso.curso_Cod = Convert.ToInt32(dr["curso_Cod"].ToString());
-                    curso.curso_IdProf = Convert.ToInt32(dr["curso_IdProf"].ToString());
-                    curso.curso_Nome = dr["curso_Nome"].ToString();
-                    curso.curso_TotCred = Convert.ToInt32(dr["curso_TotCred"].ToString();
-                    lista.Add(curso);
+                    List<Curso> lista = new List<Curso>();
+                    String.Join(".")
                 }
                 return lista;
             }
