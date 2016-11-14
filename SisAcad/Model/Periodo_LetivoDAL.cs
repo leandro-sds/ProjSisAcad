@@ -64,12 +64,18 @@ namespace SisAcad.Model {
             }
         }
 
-        public List<Curso> Listar(int prof, string nome) {
+        public List<Curso> Listar(int ano, int semestre, string dtinicio, string dtfim) {
             try {
                 con.Open();
-                query = @"SELECT * FROM Cursos WHERE
-                        (@prof = 0 OR curso_IdProf = @prof) AND 
-                        (@nome is NULL or curso_Nome = @nome)";
+                query = @"SELECT * FROM Periodo_Letivo WHERE
+                        (@pl_Ano IS NULL OR @pl_Ano = pl_Ano) AND 
+                        (@pl_Semestre IS NULL OR @pl_Semestre = pl_Semestre) AND
+                        (@pl_DtInicio IS NULL OR @pl_DtInicio = DtInicio) AND
+                        (@pl_DtFim IS NULLS OR @pl_DtFim = DtFim)";
+                cmd = new SqlCommand(query, con);
+
+                if()
+
                 cmd.Parameters.AddWithValue("@prof", prof);
                 cmd.Parameters.AddWithValue("@nome", nome);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -77,10 +83,10 @@ namespace SisAcad.Model {
                 Curso curso = new Curso();
 
                 while (dr.Read()) {
-                    curso.curso_Cod = Convert.ToInt32("curso_Cod");
-                    curso.curso_IdProf = Convert.ToInt32("curso_IdProf");
-                    curso.curso_Nome = Convert.ToString("curso_Nome");
-                    curso.curso_TotCred = Convert.ToInt32("curso_TotCred");
+                    curso.curso_Cod = Convert.ToInt32(dr["curso_Cod"].ToString());
+                    curso.curso_IdProf = Convert.ToInt32(dr["curso_IdProf"].ToString());
+                    curso.curso_Nome = dr["curso_Nome"].ToString();
+                    curso.curso_TotCred = Convert.ToInt32(dr["curso_TotCred"].ToString();
                     lista.Add(curso);
                 }
                 return lista;

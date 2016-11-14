@@ -13,6 +13,12 @@
     <div class="page-content container-fluid">
       <div class="panel">
         <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">Nome</label>
+                    
+                </div>
+            </div>
             <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered" DataKeyNames="prof_Id" AutoGenerateColumns="False" DataSourceID="objProf">
                 <Columns>
                     <asp:BoundField DataField="prof_Mat" HeaderText="Matricula" SortExpression="prof_Mat" ReadOnly="True"></asp:BoundField>
