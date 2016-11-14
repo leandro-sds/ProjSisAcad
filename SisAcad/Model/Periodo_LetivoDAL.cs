@@ -13,7 +13,7 @@ namespace SisAcad.Model {
         public void Insert(Periodo_Letivo pl) {
             try {
                 con.Open();
-                query = "INSERT INTO Periodo_Letivo (pl_Ano, pl_Semestre, pl_DtInicio, pl_DtFim) VALUES (@ano, @semestre, @dtini, @dtfim";
+                query = "INSERT INTO Periodo_Letivo (pl_Ano, pl_Semestre, pl_DtInicio, pl_DtFim) VALUES (@ano, @semestre, @dtini, @dtfim)";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@ano", pl.pl_Ano);
                 cmd.Parameters.AddWithValue("@semestre", pl.pl_Semestre);
@@ -21,8 +21,8 @@ namespace SisAcad.Model {
                 cmd.Parameters.AddWithValue("@dtfim", pl.pl_DtFim);
                 cmd.ExecuteNonQuery();
             }
-            catch {
-                throw new Exception("Erro ao cadastrar periodo letivo.");
+            catch (Exception e) {
+                throw new Exception("Erro ao cadastrar periodo letivo." + e.Message);
             }
             finally {
                 con.Close();
@@ -64,36 +64,50 @@ namespace SisAcad.Model {
             }
         }
 
-        public List<Curso> Listar(int ano, int semestre, string dtinicio, string dtfim) {
+        public List<Periodo_Letivo> Listar(string ano, string semestre, string dtinicio, string dtfim) {
             try {
                 con.Open();
                 query = @"SELECT * FROM Periodo_Letivo WHERE
-                        (@pl_Ano IS NULL OR @pl_Ano = pl_Ano) AND 
-                        (@pl_Semestre IS NULL OR @pl_Semestre = pl_Semestre) AND
-                        (@pl_DtInicio IS NULL OR @pl_DtInicio = DtInicio) AND
-                        (@pl_DtFim IS NULLS OR @pl_DtFim = DtFim)";
+                        (@ano IS NULL OR @ano = pl_Ano) AND 
+                        (@semestre IS NULL OR @semestre = pl_Semestre) AND
+                        (@dtinicio IS NULL OR @dtinicio = pl_DtInicio) AND
+                        (@dtfim IS NULL OR @dtfim = pl_DtFim)";
                 cmd = new SqlCommand(query, con);
 
                 if (string.IsNullOrEmpty(dtinicio)) {
-                    cmd.Parameters.AddWithValue("@pl_Dtinicio", dtinicio);
+                    cmd.Parameters.AddWithValue("@dtinicio", DBNull.Value);
                 } else {
-                    cmd.Parameters.AddWithValue("@pl_DtFim", dtfim);
+                    cmd.Parameters.AddWithValue("@dtinicio", dtinicio);
                 }
 
-                if ()
+                if (string.IsNullOrEmpty(dtfim)) {
+                    cmd.Parameters.AddWithValue("@dtfim", DBNull.Value);
+                } else {
+                    cmd.Parameters.AddWithValue("@dtfim", dtfim);
+                }
 
-                
+                if (string.IsNullOrEmpty(ano) | string.IsNullOrEmpty(semestre)) {
+                    cmd.Parameters.AddWithValue("@ano", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@semestre", DBNull.Value);
+                } else {
+                    cmd.Parameters.AddWithValue("@semestre", semestre);
+                    cmd.Parameters.AddWithValue("@ano", ano);
+                }
+
                 SqlDataReader dr = cmd.ExecuteReader();
-                Periodo_Letivo pl = new Periodo_Letivo(); 
-
+                List<Periodo_Letivo> lista = new List<Periodo_Letivo>();
+                
                 while (dr.Read()) {
-                    List<Curso> lista = new List<Curso>();
-                    String.Join(".")
+                    Periodo_Letivo pl = new Periodo_Letivo();
+                    pl.pl_Semestre = dr["pl_Ano"].ToString() + "." + dr["pl_Semestre"].ToString();
+                    pl.pl_DtInicio = dr["pl_DtInicio"].ToString();
+                    pl.pl_DtFim = dr["pl_DtFim"].ToString();
+                    lista.Add(pl);
                 }
                 return lista;
             }
-            catch {
-                throw new Exception("Erro ao listar alunos.");
+            catch (Exception e) {
+                throw new Exception("Erro ao listar alunos." + e.Message);
 
             }
             finally {

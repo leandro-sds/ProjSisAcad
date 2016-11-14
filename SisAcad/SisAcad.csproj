@@ -103,6 +103,7 @@
     </None>
     <Content Include="View\Disciplina.aspx" />
     <Content Include="View\listarDisciplina.aspx" />
+    <Content Include="View\listarSemestre_Letivo.aspx" />
     <Content Include="View\relatorioDisciplina.aspx" />
     <Content Include="View\Semestre_Letivo.aspx" />
     <Content Include="wsNew.asmx" />
@@ -2006,6 +2007,7 @@
     <Compile Include="Controllers\CursoController.cs" />
     <Compile Include="Controllers\DisciplinaController.cs" />
     <Compile Include="Controllers\ProfessorController.cs" />
+    <Compile Include="Controllers\Semestre_LetivoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2055,6 +2057,13 @@
     </Compile>
     <Compile Include="View\listarDisciplina.aspx.designer.cs">
       <DependentUpon>listarDisciplina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\listarSemestre_Letivo.aspx.cs">
+      <DependentUpon>listarSemestre_Letivo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\listarSemestre_Letivo.aspx.designer.cs">
+      <DependentUpon>listarSemestre_Letivo.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Professor.aspx.cs">
       <DependentUpon>Professor.aspx</DependentUpon>

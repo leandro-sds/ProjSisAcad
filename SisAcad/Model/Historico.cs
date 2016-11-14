@@ -5,8 +5,8 @@ using System.Web;
 
 namespace SisAcad.Model {
     public class Historico {
-        public int hist_Ano { get; set; }
-        public int hist_Semestre { get; set; }
+        public string hist_Ano { get; set; }
+        public string hist_Semestre { get; set; }
         public int hist_DiscCod { get; set; }
         public int hist_MatAluno { get; set; }
         public string hist_Situacao { get; set; }
