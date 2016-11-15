@@ -10,79 +10,43 @@
 namespace SisAcad.View {
     
     
-    public partial class listarSemestre_Letivo {
+    public partial class Matriz {
         
         /// <summary>
-        /// Controle ToolkitScriptManager1.
+        /// Controle tbNomeCurso.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
+        protected global::System.Web.UI.WebControls.TextBox tbNomeCurso;
         
         /// <summary>
-        /// Controle pl_AnoTextBox.
+        /// Controle ddlProf.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pl_AnoTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProf;
         
         /// <summary>
-        /// Controle pl_SemestreTextBox.
+        /// Controle objProf.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pl_SemestreTextBox;
+        protected global::System.Web.UI.WebControls.ObjectDataSource objProf;
         
         /// <summary>
-        /// Controle pl_DtInicioTextBox.
+        /// Controle btnPesqCurso.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pl_DtInicioTextBox;
-        
-        /// <summary>
-        /// Controle maskDtInicio.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::AjaxControlToolkit.MaskedEditExtender maskDtInicio;
-        
-        /// <summary>
-        /// Controle pl_DtFimTextBox.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pl_DtFimTextBox;
-        
-        /// <summary>
-        /// Controle maskDtFim.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::AjaxControlToolkit.MaskedEditExtender maskDtFim;
-        
-        /// <summary>
-        /// Controle btnPesq.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPesq;
+        protected global::System.Web.UI.WebControls.Button btnPesqCurso;
         
         /// <summary>
         /// Controle GridView1.
@@ -94,12 +58,39 @@ namespace SisAcad.View {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// Controle objSL.
+        /// Controle objCursos.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource objSL;
+        protected global::System.Web.UI.WebControls.ObjectDataSource objCursos;
+        
+        /// <summary>
+        /// Controle tbNomeDisc.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbNomeDisc;
+        
+        /// <summary>
+        /// Controle gridDisc.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridDisc;
+        
+        /// <summary>
+        /// Controle objDisc.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource objDisc;
     }
 }

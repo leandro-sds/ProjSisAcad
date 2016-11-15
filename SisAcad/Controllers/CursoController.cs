@@ -18,11 +18,6 @@ namespace SisAcad.Controllers
             cursoDal.Insert(objCurso);
         }
 
-        [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Curso> Listar(string nome, int id) {
-            return cursoDal.Listar(nome, id);
-        }
-
         [DataObjectMethod(DataObjectMethodType.Update)]
         public void Update(Curso objCurso) {
             cursoDal.Update(objCurso);
@@ -33,9 +28,21 @@ namespace SisAcad.Controllers
             cursoDal.Delete(objCurso);
         }
 
+        #region Select
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Curso> Listar() {
+            return cursoDal.Listar();
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Curso> Listar(string nome, int id) {
+            return cursoDal.Listar(nome, id);
+        }
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public Curso GetCurso(int cod) {
             return cursoDal.GetCurso(cod);
         }
+        #endregion
     }
 }

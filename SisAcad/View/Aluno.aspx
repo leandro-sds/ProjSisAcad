@@ -57,8 +57,9 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Curso:</label>
                         <div class="col-sm-9">
-                            <asp:DropDownList Text='<%# Bind("aluno_CodCurso") %>' ID="DropDownList2" CssClass="form-control" runat="server" DataSourceID="objCursoEdit" DataTextField="curso_Nome" DataValueField="curso_Cod"></asp:DropDownList><br />
-                            <asp:ObjectDataSource runat="server" ID="objCursoEdit" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.CursoController"></asp:ObjectDataSource>
+                            <asp:DropDownList Text='<%# Bind("aluno_CodCurso") %>' ID="ddlCurso" CssClass="form-control" runat="server" DataSourceID="objCursoEdit" DataTextField="curso_Nome" DataValueField="curso_Cod"></asp:DropDownList><br />
+                            <asp:ObjectDataSource runat="server" ID="objCursoEdit" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.CursoController">
+                            </asp:ObjectDataSource>
                         </div>
                     </div>
 

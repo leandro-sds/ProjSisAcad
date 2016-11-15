@@ -129,5 +129,33 @@ namespace SisAcad.Model {
                 con.Close();
             }
         }
+
+        public List<Curso> Listar() {
+            try {
+                con.Open();
+                query = @"SELECT * FROM Cursos";
+                cmd = new SqlCommand(query, con);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Curso> lista = new List<Curso>();
+
+                while (dr.Read()) {
+                    Curso curso = new Curso();
+                    curso.curso_Cod = Convert.ToInt32(dr["curso_Cod"]);
+                    curso.curso_IdProf = Convert.ToInt32(dr["curso_IdProf"]);
+                    curso.curso_Nome = dr["curso_Nome"].ToString();
+                    curso.curso_TotCred = Convert.ToInt32(dr["curso_TotCred"]);
+                    lista.Add(curso);
+                }
+                return lista;
+            }
+            catch (Exception e) {
+                throw new Exception("Erro ao listar alunos. " + e.Message);
+
+            }
+            finally {
+                con.Close();
+            }
+        }
     }
 }

@@ -104,6 +104,7 @@
     <Content Include="View\Disciplina.aspx" />
     <Content Include="View\listarDisciplina.aspx" />
     <Content Include="View\listarSemestre_Letivo.aspx" />
+    <Content Include="View\Matriz.aspx" />
     <Content Include="View\relatorioDisciplina.aspx" />
     <Content Include="View\Semestre_Letivo.aspx" />
     <Content Include="wsNew.asmx" />
@@ -2019,6 +2020,7 @@
     <Compile Include="Model\DisciplinaDAL.cs" />
     <Compile Include="Model\Historico.cs" />
     <Compile Include="Model\Matriz.cs" />
+    <Compile Include="Model\MatrizDAL.cs" />
     <Compile Include="Model\Periodo_Letivo.cs" />
     <Compile Include="Model\Periodo_LetivoDAL.cs" />
     <Compile Include="Model\Professor.cs" />
@@ -2064,6 +2066,13 @@
     </Compile>
     <Compile Include="View\listarSemestre_Letivo.aspx.designer.cs">
       <DependentUpon>listarSemestre_Letivo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Matriz.aspx.cs">
+      <DependentUpon>Matriz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Matriz.aspx.designer.cs">
+      <DependentUpon>Matriz.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Professor.aspx.cs">
       <DependentUpon>Professor.aspx</DependentUpon>

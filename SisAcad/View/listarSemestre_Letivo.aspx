@@ -19,42 +19,50 @@
         <div class="panel-body">
             <div class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Ano</label>
-                    <div class="col-sm-9">
+                    <label class="col-sm-1 control-label">Ano</label>
+                    <div class="col-sm-4">
                         <asp:TextBox Text='<%# Bind("pl_Ano") %>' MaxLength="4" CssClass="form-control" runat="server" ID="pl_AnoTextBox" /><br />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Semestre</label>
-                    <div class="col-sm-9">
+                    <label class="col-sm-1 control-label">Semestre</label>
+                    <div class="col-sm-4">
                         <asp:TextBox Text='<%# Bind("pl_Semestre") %>' MaxLength="1" CssClass="form-control" runat="server" ID="pl_SemestreTextBox" /><br />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Data de Inicio</label>
-                    <div class="col-sm-9">
+                    <label class="col-sm-1 control-label">Data de Inicio</label>
+                    <div class="col-sm-4">
                         <asp:TextBox Text='<%# Bind("pl_DtInicio") %>' CssClass="form-control" runat="server" ID="pl_DtInicioTextBox" /><br />
                         <ajax:maskededitextender id="maskDtInicio" masktype="Date" userdateformat="DayMonthYear" mask="99/99/9999" targetcontrolid="pl_DtInicioTextBox" runat="server"></ajax:maskededitextender>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Data de Término</label>
-                    <div class="col-sm-9">
+                    <label class="col-sm-1 control-label">Data de Término</label>
+                    <div class="col-sm-4">
                         <asp:TextBox Text='<%# Bind("pl_DtFim") %>' CssClass="form-control" runat="server" ID="pl_DtFimTextBox" /><br />
                         <ajax:maskededitextender id="maskDtFim" masktype="Date" userdateformat="DayMonthYear" mask="99/99/9999" targetcontrolid="pl_DtFimTextBox" runat="server"></ajax:maskededitextender>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-3">
+                        <asp:Button ID="btnPesq" CssClass="btn btn-primary" runat="server" Text="Pesquisar" />
+                    </div>
+                </div>
+
             </div>
 
             <asp:GridView ID="GridView1" CssClass="table table-bordered" runat="server" AutoGenerateColumns="False" DataSourceID="objSL">
                 <Columns>
                     <asp:BoundField DataField="pl_Ano" HeaderText="pl_Ano" SortExpression="pl_Ano" Visible="false"></asp:BoundField>
-                    <asp:BoundField DataField="pl_Semestre" HeaderText="pl_Semestre" SortExpression="pl_Semestre"></asp:BoundField>
-                    <asp:BoundField DataField="pl_DtInicio" HeaderText="pl_DtInicio" SortExpression="pl_DtInicio"></asp:BoundField>
-                    <asp:BoundField DataField="pl_DtFim" HeaderText="pl_DtFim" SortExpression="pl_DtFim"></asp:BoundField>
+                    <asp:BoundField DataField="pl_Semestre" HeaderText="Semestre" SortExpression="pl_Semestre"></asp:BoundField>
+                    <asp:BoundField DataField="pl_DtInicio" HeaderText="Data Inicial" SortExpression="pl_DtInicio"></asp:BoundField>
+                    <asp:BoundField DataField="pl_DtFim" HeaderText="Data Final" SortExpression="pl_DtFim"></asp:BoundField>
+                    <asp:BoundField DataField="pl_Id" HeaderText="pl_Id" SortExpression="pl_Id" Visible="false"></asp:BoundField>
                 </Columns>
             </asp:GridView>
             <asp:ObjectDataSource runat="server" ID="objSL" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.Semestre_LetivoController">
