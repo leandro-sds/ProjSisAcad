@@ -46,6 +46,8 @@ namespace SisAcad.Model {
                 while (dr.Read()) {
                     Matriz matriz = new Matriz();
                     matriz.matriz_CodCurso = Convert.ToInt32(dr["matriz_CodCurso"].ToString());
+                    matriz.matriz_CodDisc = Convert.ToInt32(dr["matriz_CodDisc"].ToString());
+                    matriz.matriz_Periodo = Convert.ToInt32(dr["matriz_Periodo"].ToString());
                 }
                 return lista;
                     
