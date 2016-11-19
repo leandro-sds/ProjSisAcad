@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
 
-    <asp:ScriptManager ID="ajaxScript" EnablePageMethods="true" EnableScriptGlobalization="true" runat="server"></asp:ScriptManager>
+    <ajax:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></ajax:ToolkitScriptManager>
 
     <div class="page-header">
       <h1 class="page-title"> <asp:Label ID="lblHeader" runat="server" Text="Label"></asp:Label> </h1>
@@ -96,6 +96,7 @@
                         <label class="col-sm-3 control-label">Data de Nascimento:</label>
                         <div class="col-sm-9">
                             <asp:TextBox Text='<%# Bind("aluno_DataNasc") %>' CssClass="form-control" runat="server" ID="aluno_DataNascTextBox" /><br />
+                            <ajax:MaskedEditExtender ID="maskData" TargetControlID="aluno_DataNascTextBox" MaskType="Date" Mask="99/99/9999" UserDateFormat="DayMonthYear" runat="server"></ajax:MaskedEditExtender>
                         </div>
                     </div>
 

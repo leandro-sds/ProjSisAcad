@@ -11,7 +11,7 @@ namespace SisAcad.Model {
         String query;
 
         public void Insert(Matriz matriz) {
-            using (SqlTransaction trans = new SqlTransaction()) {
+            using (SqlTransaction trans = con.BeginTransaction()) {
                 try {
                     query = "INSERT INTO Matrizes (matriz_CodCurso, matriz_CodDisc, matriz_Periodo) VALUES (@codCurso, @codDisc, @periodo)";
                     cmd = new SqlCommand(query, con);
@@ -31,6 +31,32 @@ namespace SisAcad.Model {
                     con.Close();
                 }
             }
+        }
+
+        public List<Matriz> GetMatriz(int codCurso)
+        {
+            try {
+                con.Open();
+                cmd = new SqlCommand(@"SELECT * FROM Matrizes WHERE matriz_CodCurso = @codCurso", con);
+                cmd.Parameters.AddWithValue("@codCurso", codCurso);
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Matriz> lista = new List<Matriz>();
+                
+
+                while (dr.Read()) {
+                    Matriz matriz = new Matriz();
+                    matriz.matriz_CodCurso = Convert.ToInt32( dr["matriz_CodCurso"].ToString());
+                }
+                return lista;
+                    
+            }
+            catch (Exception e) {
+                throw new Exception("erro." + e.Message);
+            }
+            finally {
+                con.Close();
+            }
+            
         }
     }
 }

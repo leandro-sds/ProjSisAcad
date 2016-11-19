@@ -11,5 +11,6 @@ namespace SisAcad.Model {
         public string disc_Tipo { get; set; }
         public int disc_HoraObr { get; set; }
         public int disc_Falta { get; set; }
+        public List<Matriz> matriz { get; set; }
     }
 }

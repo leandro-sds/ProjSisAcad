@@ -10,6 +10,22 @@ namespace SisAcad.Model {
         public string curso_Nome { get; set; }
         public int curso_IdProf { get; set; }
 
+        private List<Matriz> matriz;
+        public List<Matriz> Matrizes
+        {
+            get
+            {
+                if (this.matriz == null)
+                {
+                    this.matriz = new MatrizDAL().GetMatriz(curso_Cod);
+                }
+                return matriz;
+            }
+            set {
+
+            }
+        }
+
         private Professor professor;
         public Professor Professor
         {
