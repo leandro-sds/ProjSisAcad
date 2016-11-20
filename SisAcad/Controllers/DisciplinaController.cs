@@ -39,8 +39,7 @@ namespace SisAcad.Controllers
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Disciplina> Listar()
-        {
+        public List<Disciplina> Listar() {
             return disciplinaDAL.Listar();
         }
             

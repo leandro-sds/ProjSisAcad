@@ -32,5 +32,10 @@ namespace SisAcad.Controllers
         public List<Periodo_Letivo> Listar(string ano, string semestre, string dtinicio, string dtfim) {
             return plDAL.Listar(ano, semestre, dtinicio, dtfim);
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Periodo_Letivo> Listar() {
+            return plDAL.Listar();
+        }
     }
 }

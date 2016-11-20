@@ -114,5 +114,32 @@ namespace SisAcad.Model {
                 con.Close();
             }
         }
+
+        public List<Periodo_Letivo> Listar() {
+            try {
+                con.Open();
+                query = @"SELECT * FROM Periodo_Letivo";
+                cmd = new SqlCommand(query, con);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Periodo_Letivo> lista = new List<Periodo_Letivo>();
+
+                while (dr.Read()) {
+                    Periodo_Letivo pl = new Periodo_Letivo();
+                    pl.pl_Semestre = dr["pl_Ano"].ToString() + "." + dr["pl_Semestre"].ToString();
+                    pl.pl_DtInicio = dr["pl_DtInicio"].ToString();
+                    pl.pl_DtFim = dr["pl_DtFim"].ToString();
+                    lista.Add(pl);
+                }
+                return lista;
+            }
+            catch (Exception e) {
+                throw new Exception("Erro ao listar alunos." + e.Message);
+
+            }
+            finally {
+                con.Close();
+            }
+        }
     }
 }
