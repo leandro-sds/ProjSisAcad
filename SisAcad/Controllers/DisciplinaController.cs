@@ -39,9 +39,9 @@ namespace SisAcad.Controllers
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Disciplina> Relatorio()
+        public List<Disciplina> Listar()
         {
-            return disciplinaDAL.Relatorio();
+            return disciplinaDAL.Listar();
         }
             
     }

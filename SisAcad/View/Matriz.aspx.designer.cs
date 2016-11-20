@@ -112,15 +112,6 @@ namespace SisAcad.View {
         protected global::System.Web.UI.WebControls.TextBox tbPeriodo;
         
         /// <summary>
-        /// Controle periodoValidator.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator periodoValidator;
-        
-        /// <summary>
         /// Controle btnSalvar.
         /// </summary>
         /// <remarks>

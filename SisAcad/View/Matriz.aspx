@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
-    
     <!-- Page -->
     <!-- Panel Header -->
     <div class="page-header">
@@ -116,7 +115,6 @@
                     <label class="col-sm-1 control-label">Periodo</label>
                     <div class="col-sm-4">
                         <asp:TextBox ID="tbPeriodo" MaxLength="1" CssClass="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="periodoValidator" ControlToValidate="tbPeriodo" runat="server" ErrorMessage="Digite o periodo"></asp:RequiredFieldValidator>
                     </div>
                 </div>
 

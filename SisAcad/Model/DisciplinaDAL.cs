@@ -113,7 +113,7 @@ namespace SisAcad.Model {
             }
         }
 
-        public List<Disciplina> Relatorio()
+        public List<Disciplina> Listar()
         {
             try
             {
