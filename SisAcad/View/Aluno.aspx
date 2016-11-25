@@ -77,6 +77,7 @@
                         <div class="col-sm-9 col-sm-offset-3">
                             <asp:LinkButton CssClass="btn btn-primary" runat="server" Text="Atualizar" CommandName="Update" ID="LinkButton3" CausesValidation="True" />
                             <asp:LinkButton CssClass="btn btn-danger" runat="server" Text="Cancelar" CommandName="Cancel" ID="LinkButton4" CausesValidation="False" />
+                            <asp:LinkButton CssClass="btn btn-dark" runat="server" Text="Deletar" CommandName="Delete" ID="LinkButton5" CausesValidation="False" />
                         </div>
                     </div>
                     

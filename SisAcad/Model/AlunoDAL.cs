@@ -137,7 +137,57 @@ namespace SisAcad.Model {
             finally {
                 con.Close();
             }
+        }
 
+        public List<Aluno> Listar(string nome, string matricula) {
+            try {
+                con.Open();
+                query = @"SELECT * FROM Aluno WHERE
+                          (@nome IS NULL OR @nome = aluno_Nome) AND
+                          (@mat IS NULL OR @mat = aluno_Mat)";
+                cmd = new SqlCommand(query, con);
+
+                if (string.IsNullOrEmpty(nome)) {
+                    cmd.Parameters.AddWithValue("@nome", DBNull.Value);
+                } else {
+                    cmd.Parameters.AddWithValue("@nome", nome);
+                }
+
+                if (string.IsNullOrEmpty(matricula)) {
+                    cmd.Parameters.AddWithValue("@mat", DBNull.Value);
+                } else {
+                    cmd.Parameters.AddWithValue("@mat", Convert.ToInt32(matricula));
+                }
+
+                /*if (codCurso == 0) {
+                    cmd.Parameters.AddWithValue("@codCurso", DBNull.Value);
+                } else {
+                    cmd.Parameters.AddWithValue("@codCurso", Convert.ToInt32(codCurso));
+                }*/
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Aluno> lista = new List<Aluno>();
+
+
+                while (dr.Read()) {
+                    Aluno aluno = new Aluno();
+                    aluno.Id = Convert.ToInt32(dr["Id"].ToString());
+                    aluno.aluno_Mat = Convert.ToInt32(dr["aluno_Mat"].ToString());
+                    aluno.aluno_Nome = dr["aluno_Nome"].ToString();
+                    aluno.aluno_DataNasc = dr["aluno_DataNasc"].ToString();
+                    aluno.aluno_MGP = Convert.ToDecimal(dr["aluno_MGP"].ToString());
+                    aluno.aluno_TotCred = Convert.ToInt16(dr["aluno_TotCred"].ToString());
+                    aluno.aluno_CodCurso = Convert.ToInt16(dr["aluno_CodCurso"].ToString());
+                    lista.Add(aluno);
+                }
+                return lista;
+            }
+            catch (Exception e) {
+                throw new Exception("Erro ao listar alunos." + e.Message);
+            }
+            finally {
+                con.Close();
+            }
         }
     }
 }

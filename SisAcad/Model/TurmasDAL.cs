@@ -65,5 +65,39 @@ namespace SisAcad.Model {
             }
         }
 
+        public List<Turmas> Listar(string semestre, int codCurso) {
+            try {
+                con.Open();
+                query = @"SELECT * FROM Turmas WHERE 
+                          (@ano IS NULL OR @ano = turma_Ano) AND
+                          (@semestre IS NULL OR @semestre = turma_Semestre) AND
+                          (@codCurso IS NULL OR @codCurso = turma_CursoCod";
+                cmd = new SqlCommand(query, con);
+
+
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Turmas> lista = new List<Turmas>();
+
+
+                while (dr.Read()) {
+                    Turmas turma = new Turmas();
+                    turma.turma_Semestre = dr["turma_Semestre"].ToString();
+                    turma.turma_Ano = dr["turma_Ano"].ToString();
+                    turma.turma_CursoCod = Convert.ToInt32(dr["turma_CursoCod"].ToString());
+                    turma.turma_DiscCod = Convert.ToInt32(dr["turma_DiscCod"].ToString());
+                    turma.turma_IdProf = Convert.ToInt32(dr["turma_IdProf"].ToString());
+                    turma.turma_Vagas = Convert.ToInt32(dr["turma_Vagas"].ToString());
+                    lista.Add(turma);
+                }
+                return lista;
+            }
+            catch {
+                throw new Exception("Erro ao listar alunos.");
+            }
+            finally {
+                con.Close();
+            }
+        }
     }
 }

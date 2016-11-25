@@ -10,25 +10,34 @@
 namespace SisAcad.View {
     
     
-    public partial class Aluno {
+    public partial class listarTurma {
         
         /// <summary>
-        /// tbNome control.
+        /// tbSemestre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbNome;
+        protected global::System.Web.UI.WebControls.TextBox tbSemestre;
         
         /// <summary>
-        /// tbMat control.
+        /// ddlCurso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbMat;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCurso;
+        
+        /// <summary>
+        /// objCurso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource objCurso;
         
         /// <summary>
         /// btnPesq control.
@@ -40,21 +49,21 @@ namespace SisAcad.View {
         protected global::System.Web.UI.WebControls.Button btnPesq;
         
         /// <summary>
-        /// GridView1 control.
+        /// gridTurma control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gridTurma;
         
         /// <summary>
-        /// objAluno control.
+        /// objTurma control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource objAluno;
+        protected global::System.Web.UI.WebControls.ObjectDataSource objTurma;
     }
 }

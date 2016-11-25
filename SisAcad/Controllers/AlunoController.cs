@@ -39,5 +39,10 @@ namespace SisAcad.Controllers
         public Aluno GetAluno(int alunoId) {
             return alunoDAL.GetAluno(alunoId);
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Aluno> Listar(string nome, string matricula) {
+            return alunoDAL.Listar(nome, matricula);
+        }
     }
 }
