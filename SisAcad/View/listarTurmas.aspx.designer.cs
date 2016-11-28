@@ -13,6 +13,15 @@ namespace SisAcad.View {
     public partial class listarTurma {
         
         /// <summary>
+        /// ToolkitScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
+        
+        /// <summary>
         /// tbSemestre control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace SisAcad.View {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbSemestre;
+        
+        /// <summary>
+        /// maskSemestre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender maskSemestre;
         
         /// <summary>
         /// ddlCurso control.

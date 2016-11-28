@@ -22,5 +22,10 @@ namespace SisAcad.Controllers
         public List<Turmas> Listar() {
             return turmasDAL.Listar();
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Turmas> Listar(string semestre, int codCurso) {
+            return turmasDAL.Listar(semestre, codCurso);
+        }
     }
 }

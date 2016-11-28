@@ -56,7 +56,7 @@
 
                     <asp:TemplateField HeaderText="Disciplina" SortExpression="matriz_CodDisc">
                         <ItemTemplate>
-                            <asp:Label Text='<%# Bind("Disciplina.disc_Nome") %>' runat="server" ID="lblCursoNome"></asp:Label>
+                            <asp:Label Text='<%# Bind("Disciplina.disc_Nome") %>' runat="server" ID="lblDiscNome"></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
 

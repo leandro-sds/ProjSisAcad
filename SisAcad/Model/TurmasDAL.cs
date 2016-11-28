@@ -71,10 +71,25 @@ namespace SisAcad.Model {
                 query = @"SELECT * FROM Turmas WHERE 
                           (@ano IS NULL OR @ano = turma_Ano) AND
                           (@semestre IS NULL OR @semestre = turma_Semestre) AND
-                          (@codCurso IS NULL OR @codCurso = turma_CursoCod";
+                          (@codCurso IS NULL OR @codCurso = turma_CursoCod)";
                 cmd = new SqlCommand(query, con);
 
+                if (string.IsNullOrEmpty(semestre)) {
+                    cmd.Parameters.AddWithValue("@ano", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@semestre", DBNull.Value);
+                } else {
+                    string[] separator = { ".", "," };
+                    string[] s = semestre.Split(separator, StringSplitOptions.RemoveEmptyEntries);
 
+                    cmd.Parameters.AddWithValue("@ano", s[0].ToString());
+                    cmd.Parameters.AddWithValue("@semestre", s[1].ToString());
+                }
+
+                if (codCurso == 0) {
+                    cmd.Parameters.AddWithValue("@codCurso", DBNull.Value);
+                } else {
+                    cmd.Parameters.AddWithValue("@codCurso", codCurso);
+                }
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 List<Turmas> lista = new List<Turmas>();
@@ -82,8 +97,7 @@ namespace SisAcad.Model {
 
                 while (dr.Read()) {
                     Turmas turma = new Turmas();
-                    turma.turma_Semestre = dr["turma_Semestre"].ToString();
-                    turma.turma_Ano = dr["turma_Ano"].ToString();
+                    turma.turma_Semestre = dr["turma_Ano"].ToString() + "." + dr["turma_Semestre"].ToString();
                     turma.turma_CursoCod = Convert.ToInt32(dr["turma_CursoCod"].ToString());
                     turma.turma_DiscCod = Convert.ToInt32(dr["turma_DiscCod"].ToString());
                     turma.turma_IdProf = Convert.ToInt32(dr["turma_IdProf"].ToString());
@@ -92,8 +106,8 @@ namespace SisAcad.Model {
                 }
                 return lista;
             }
-            catch {
-                throw new Exception("Erro ao listar alunos.");
+            catch (Exception e) {
+                throw new Exception("Erro ao listar alunos." + e.Message);
             }
             finally {
                 con.Close();
