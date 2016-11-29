@@ -106,6 +106,7 @@
     <Content Include="View\listarMatriz.aspx" />
     <Content Include="View\listarSemestre_Letivo.aspx" />
     <Content Include="View\listarTurmas.aspx" />
+    <Content Include="View\Matricula.aspx" />
     <Content Include="View\Matriz.aspx" />
     <Content Include="View\relatorioDisciplina.aspx" />
     <Content Include="View\Semestre_Letivo.aspx" />
@@ -2024,6 +2025,9 @@
     <Compile Include="Model\Disciplina.cs" />
     <Compile Include="Model\DisciplinaDAL.cs" />
     <Compile Include="Model\Historico.cs" />
+    <Compile Include="Model\HistoricoDAL.cs" />
+    <Compile Include="Model\Matricula.cs" />
+    <Compile Include="Model\MatriculaDAL.cs" />
     <Compile Include="Model\Matriz.cs" />
     <Compile Include="Model\MatrizDAL.cs" />
     <Compile Include="Model\Periodo_Letivo.cs" />
@@ -2086,6 +2090,13 @@
     </Compile>
     <Compile Include="View\listarTurmas.aspx.designer.cs">
       <DependentUpon>listarTurmas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Matricula.aspx.cs">
+      <DependentUpon>Matricula.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Matricula.aspx.designer.cs">
+      <DependentUpon>Matricula.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Matriz.aspx.cs">
       <DependentUpon>Matriz.aspx</DependentUpon>
