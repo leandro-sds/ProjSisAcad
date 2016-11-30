@@ -13,7 +13,7 @@ namespace SisAcad.View {
 
         protected void btnSalvar_Click(object sender, EventArgs e) {
             try {
-                List<Matriz> lista = new List<Matriz>();
+                List<Disciplina> listaDisc = new List<Disciplina>();
                 SisAcad.Model.Matriz matriz = new Model.Matriz();
 
                 //Verifica qual linha está selecionada no GridView de Cursos
