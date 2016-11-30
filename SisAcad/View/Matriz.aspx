@@ -46,7 +46,7 @@
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:RadioButton ID="SelectCurso" runat="server" />
+                            <asp:RadioButtonList AutoPostBack="true" ID="SelectCurso" runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="curso_Cod" HeaderText="curso_Cod" SortExpression="curso_Cod"></asp:BoundField>
@@ -90,7 +90,7 @@
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:CheckBox ID="SelectDisc" runat="server" />
+                            <asp:CheckBoxList ID="SelectDisc" runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="disc_Cod" HeaderText="disc_Cod" SortExpression="disc_Cod" Visible="false"></asp:BoundField>
