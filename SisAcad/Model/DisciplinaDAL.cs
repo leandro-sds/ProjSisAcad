@@ -146,6 +146,38 @@ namespace SisAcad.Model {
             }
         }
 
+        public List<Disciplina> Listar(int matAluno) {
+            try {
+                con.Open();
+                query = @"SELECT D.disc_Nome, D.disc_Cod FROM Disciplina AS D 
+                          INNER JOIN Matrizes AS M ON M.matriz_CodDisc = D.disc_Cod 
+                          WHERE M.matriz_CodCurso = @codCurso";
+                cmd = new SqlCommand(query, con);
+
+                Aluno aluno = new Aluno();
+                AlunoDAL aDAL = new AlunoDAL();
+                aluno = aDAL.GetAluno(matAluno);
+                cmd.Parameters.AddWithValue("@codCurso", aluno.aluno_CodCurso);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Disciplina> lista = new List<Disciplina>();
+
+                while (dr.Read()) {
+                    Disciplina disc = new Disciplina();
+                    disc.disc_Cod = Convert.ToInt32(dr["disc_Cod"].ToString());
+                    disc.disc_Nome = dr["disc_Nome"].ToString();
+                    lista.Add(disc);
+                }
+                return lista;
+            }
+            catch (Exception e) {
+                throw new Exception("Erro ao listar disciplinas." + e.Message);
+            }
+            finally {
+                con.Close();
+            }
+        }
+
         public Disciplina GetDisc(int cod) {
             try {
                 con.Open();

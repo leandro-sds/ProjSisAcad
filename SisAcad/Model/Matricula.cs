@@ -9,7 +9,7 @@ namespace SisAcad.Model {
         public string matricula_Ano { get; set; }
         public string matricula_Semestre { get; set; }
         public int matricula_CodAluno { get; set; }
-        public int matricula_CodCurso { get; set; }
+        public int matricula_CodDisc { get; set; }
         
         //Notas
         public int matricula_N1 { get; set; }
@@ -39,7 +39,7 @@ namespace SisAcad.Model {
         public Curso Curso {
             get {
                 if (this.curso == null) {
-                    this.curso = new CursoDAL().GetCurso(matricula_CodCurso);
+                    this.curso = new CursoDAL().GetCurso(matricula_CodDisc);
                 }
                 return this.curso;
             }

@@ -16,18 +16,16 @@ namespace SisAcad.Model {
                 query = @"INSERT INTO Historicos (hist_Ano, hist_Semestre, hist_DiscCod, hist_MatAluno) 
                                         VALUES (@ano, @semestre, @discCod, @matAluno)";
 
-                string[] separator = { "." };
-                string[] semestre = hist.hist_Semestre.Split(separator, StringSplitOptions.RemoveEmptyEntries);
 
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@ano", semestre[0].ToString());
-                cmd.Parameters.AddWithValue("@semestre", semestre[1].ToString());
+                cmd.Parameters.AddWithValue("@ano", hist.hist_Ano);
+                cmd.Parameters.AddWithValue("@semestre", hist.hist_Semestre);
                 cmd.Parameters.AddWithValue("@discCod", hist.hist_DiscCod);
                 cmd.Parameters.AddWithValue("@matAluno", hist.hist_MatAluno);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e) {
-                throw new Exception("Erro ao cadastrar aluno. " + e.Message);
+                throw new Exception("Erro hist. " + e.Message);
             }
             finally {
                 con.Close();

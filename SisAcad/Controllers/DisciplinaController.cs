@@ -42,6 +42,12 @@ namespace SisAcad.Controllers
         public List<Disciplina> Listar() {
             return disciplinaDAL.Listar();
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        //Método utilizado em novas matriculas
+        public List<Disciplina> ListarPorCurso(int matAluno) {
+            return disciplinaDAL.Listar(matAluno);
+        }
             
     }
 }

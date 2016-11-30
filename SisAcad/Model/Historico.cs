@@ -38,5 +38,17 @@ namespace SisAcad.Model {
 
             }
         }
+
+        //Construtor
+        public Historico(string ano, string semestre, int codDisc, int codAluno) {
+            this.hist_Ano = ano;
+            this.hist_Semestre = semestre;
+            this.hist_DiscCod = codDisc;
+            this.hist_MatAluno = codAluno;
+        }
+
+        public Historico() {
+
+        }
     }
 }
