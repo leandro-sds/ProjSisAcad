@@ -110,6 +110,35 @@ namespace SisAcad.Model {
 
         }
 
+        public Aluno GetAlunoMat(int mat) {
+            try {
+                con.Open();
+                cmd = new SqlCommand(@"SELECT * FROM Aluno WHERE aluno_Mat = @mat", con);
+                cmd.Parameters.AddWithValue("@mat", mat);
+                SqlDataReader dr = cmd.ExecuteReader();
+                Aluno al = new Aluno();
+
+                if (dr.Read()) {
+                    al.Id = Convert.ToInt32(dr["Id"].ToString());
+                    al.aluno_Mat = Convert.ToInt32(dr["aluno_Mat"].ToString());
+                    al.aluno_Nome = dr["aluno_Nome"].ToString();
+                    al.aluno_DataNasc = dr["aluno_DataNasc"].ToString();
+                    al.aluno_MGP = Convert.ToDecimal(dr["aluno_MGP"].ToString());
+                    al.aluno_TotCred = Convert.ToInt16(dr["aluno_TotCred"].ToString());
+                    al.aluno_CodCurso = Convert.ToInt16(dr["aluno_CodCurso"].ToString());
+                    al.aluno_Sexo = Convert.ToChar(dr["aluno_Sexo"].ToString());
+                }
+                return al;
+            }
+            catch (Exception e) {
+                throw new Exception("Erro ao listar alunos." + e.Message);
+            }
+            finally {
+                con.Close();
+            }
+
+        }
+
         public List<Aluno> Listar() {
             try {
                 con.Open();

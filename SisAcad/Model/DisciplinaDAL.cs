@@ -156,7 +156,7 @@ namespace SisAcad.Model {
 
                 Aluno aluno = new Aluno();
                 AlunoDAL aDAL = new AlunoDAL();
-                aluno = aDAL.GetAluno(matAluno);
+                aluno = aDAL.GetAlunoMat(matAluno);
                 cmd.Parameters.AddWithValue("@codCurso", aluno.aluno_CodCurso);
 
                 SqlDataReader dr = cmd.ExecuteReader();

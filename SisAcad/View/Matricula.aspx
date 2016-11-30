@@ -64,7 +64,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Disciplina</label>
                             <div class="col-sm-9">
-                                <asp:DropDownList Text='<%# Bind("matricula_CodDisc") %>' ID="DropDisc" runat="server" CssClass="form-control" DataSourceID="objDisc" DataTextField="disc_Nome" DataValueField="disc_Cod"></asp:DropDownList><br />
+                                <asp:DropDownList Text='<%# Bind("matricula_CodDisc") %>'  ID="DropDisc" runat="server" CssClass="form-control" DataSourceID="objDisc" DataTextField="disc_Nome" DataValueField="disc_Cod"></asp:DropDownList><br />
                                 <asp:ObjectDataSource runat="server" ID="objDisc" OldValuesParameterFormatString="original_{0}" SelectMethod="ListarPorCurso" TypeName="SisAcad.Controllers.DisciplinaController">
                                     <SelectParameters>
                                         <asp:ControlParameter ControlID="ddlAluno" PropertyName="SelectedValue" Name="matAluno" Type="Int32"></asp:ControlParameter>

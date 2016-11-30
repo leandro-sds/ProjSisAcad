@@ -71,7 +71,7 @@ namespace SisAcad.Model {
         public List<Matricula> Listar() {
             try {
                 con.Open();
-                cmd = new SqlCommand(@"SELECT * FROM Matriculas", con);
+                cmd = new SqlCommand("SELECT * FROM Matriculas", con);
                 SqlDataReader dr = cmd.ExecuteReader();
                 List<Matricula> lista = new List<Matricula>();
 
