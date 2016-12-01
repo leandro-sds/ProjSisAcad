@@ -238,6 +238,28 @@
                             </ul>
                         </li>
 
+                        <li class="site-menu-item has-sub">
+                            <a data-slug="matricula">
+                                <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
+                                <span class="site-menu-title">Matricula</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                            <ul class="site-menu-sub">
+                                <li class="site-menu-item">
+                                    <a class="animsition-link" href="Matricula.aspx" data-slug="matricula-cadastro">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <span class="site-menu-title">Matricular</span>
+                                    </a>
+                                </li>
+                                <%--<li class="site-menu-item">
+                                    <a class="animsition-link" href="listarTurmas.aspx" data-slug="matriz-listar">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <span class="site-menu-title">Listar</span>
+                                    </a>
+                                </li>--%>
+                            </ul>
+                        </li>
+
 
                         <%--<li class="site-menu-item has-sub">
                             <a href="javascript:void(0)" data-slug="page">

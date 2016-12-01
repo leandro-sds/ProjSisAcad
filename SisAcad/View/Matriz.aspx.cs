@@ -13,37 +13,58 @@ namespace SisAcad.View {
 
         protected void btnSalvar_Click(object sender, EventArgs e) {
             try {
-                List<Disciplina> listaDisc = new List<Disciplina>();
+                //Lista para os códigos das Disciplinas
+                List<int> listaDisc = new List<int>();
+
+                //Objeto do tipo Matriz
                 SisAcad.Model.Matriz matriz = new Model.Matriz();
 
-                //Verifica qual linha está selecionada no GridView de Cursos
-                foreach (GridViewRow linha in gridCurso.Rows) {
-                    RadioButton rb = (RadioButton)linha.FindControl("SelectCurso");
-
-                    if (rb != null && rb.Checked) {
-                        matriz.matriz_CodCurso = Convert.ToInt32(gridCurso.DataKeys[linha.RowIndex].Value);
-                    }
-                }
+                matriz.matriz_CodCurso = Convert.ToInt32(gridCurso.SelectedDataKey.Value);
+                
 
                 //Verifica quais linhas estão selecionadas no GridView de Disciplinas
                 foreach (GridViewRow linha in gridDisc.Rows) {
                     CheckBox cb = (CheckBox)linha.FindControl("SelectDisc");
 
-
                     if (cb != null && cb.Checked) {
-                        matriz.matriz_CodDisc = Convert.ToInt32(gridDisc.DataKeys[linha.RowIndex].Value);
-                        matriz.matriz_Periodo = Convert.ToInt32(tbPeriodo.Text);
-                        
+                        listaDisc.Add(Convert.ToInt32(gridDisc.DataKeys[linha.RowIndex].Value));
+                        // matriz.matriz_CodDisc = Convert.ToInt32(gridDisc.DataKeys[linha.RowIndex].Value);
                     }
                 }
 
+                matriz.matriz_Periodo = Convert.ToInt32(lblPeriodo.Text);
                 SisAcad.Model.MatrizDAL matrizDAL = new Model.MatrizDAL();
-                matrizDAL.Insert(matriz);
+
+                //For para o tratamento da lista de disciplinas
+                for (int i = 0; i < listaDisc.Count; i++) {
+                    matriz.matriz_CodDisc = listaDisc[i];
+                    matrizDAL.Insert(matriz);
+                }       
             }
-            catch (Exception vish){
-                throw new Exception("erro" + vish.Message);
+            catch (Exception erro){
+                throw new Exception("erro " + erro.Message);
             }
-            
+            finally {
+                gridCurso.SelectedIndex = -1;
+                foreach (GridViewRow linha in gridDisc.Rows) {
+                    CheckBox cb = (CheckBox)linha.FindControl("SelectDisc");
+
+                    if (cb != null && cb.Checked) {
+                        cb.Checked = false;
+                    }
+                }
+            }
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e) {
+            gridCurso.SelectedIndex = -1;
+            foreach (GridViewRow linha in gridDisc.Rows) {
+                CheckBox cb = (CheckBox)linha.FindControl("SelectDisc");
+
+                if (cb != null && cb.Checked) {
+                    cb.Checked = false;
+                }
+            }
         }
     }
 }

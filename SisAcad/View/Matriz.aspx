@@ -42,16 +42,12 @@
                 </div>
             </div>
 
-            <asp:GridView ID="gridCurso" runat="server" CssClass="table table-bordered" DataKeyNames="curso_Cod" AutoGenerateColumns="False" DataSourceID="objCursos">
+            <asp:GridView ID="gridCurso" runat="server" AutoGenerateSelectButton="true" SelectedRowStyle-BackColor="Silver" CssClass="table table-bordered" DataKeyNames="curso_Cod" AutoGenerateColumns="False" DataSourceID="objCursos">
                 <Columns>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:RadioButtonList AutoPostBack="true" ID="SelectCurso" runat="server" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="curso_Cod" HeaderText="curso_Cod" SortExpression="curso_Cod"></asp:BoundField>
+                    
+                    <asp:BoundField DataField="curso_Cod" HeaderText="Código" SortExpression="curso_Cod"></asp:BoundField>
                     <%--<asp:BoundField DataField="curso_TotCred" HeaderText="curso_TotCred" SortExpression="curso_TotCred"></asp:BoundField>--%>
-                    <asp:BoundField DataField="curso_Nome" HeaderText="curso_Nome" SortExpression="curso_Nome"></asp:BoundField>
+                    <asp:BoundField DataField="curso_Nome" HeaderText="Nome" SortExpression="curso_Nome"></asp:BoundField>
                     <%--<asp:BoundField DataField="curso_IdProf" HeaderText="curso_IdProf" SortExpression="curso_IdProf"></asp:BoundField>--%>
                     <asp:TemplateField HeaderText="Professor" SortExpression="curso_IdProf">
                         <ItemTemplate>
@@ -90,10 +86,10 @@
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:CheckBoxList ID="SelectDisc" runat="server" />
+                            <asp:CheckBox ID="SelectDisc" runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="disc_Cod" HeaderText="disc_Cod" SortExpression="disc_Cod" Visible="false"></asp:BoundField>
+                    <asp:BoundField DataField="disc_Cod" HeaderText="Código" SortExpression="disc_Cod" Visible="false"></asp:BoundField>
                     <%--<asp:BoundField DataField="disc_Cred" HeaderText="disc_Cred" SortExpression="disc_Cred"></asp:BoundField>--%>
                     <asp:BoundField DataField="disc_Nome" HeaderText="Nome" SortExpression="disc_Nome"></asp:BoundField>
                     <%--<asp:BoundField DataField="disc_Tipo" HeaderText="disc_Tipo" SortExpression="disc_Tipo"></asp:BoundField>
@@ -114,13 +110,14 @@
                 <div class="form-group">
                     <label class="col-sm-1 control-label">Periodo</label>
                     <div class="col-sm-4">
-                        <asp:TextBox ID="tbPeriodo" MaxLength="1" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblPeriodo" runat="server" Text="2"></asp:Label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-2 col-sm-offset-1">
+                    <div class="col-sm-6 col-sm-offset-1">
                         <asp:Button ID="btnSalvar" CssClass="btn btn-primary" runat="server" Text="Salvar" CausesValidation="true" OnClick="btnSalvar_Click" />
+                        <asp:Button ID="btnCancelar" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                     </div>
                 </div>
             </div>

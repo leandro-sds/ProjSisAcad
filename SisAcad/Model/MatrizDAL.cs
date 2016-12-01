@@ -18,12 +18,14 @@ namespace SisAcad.Model {
                     //con.Open();
                     query = "INSERT INTO Matrizes (matriz_CodCurso, matriz_CodDisc, matriz_Periodo) VALUES (@codCurso, @codDisc, @periodo)";
                     cmd = new SqlCommand(query, con);
+                    
 
                     cmd.Parameters.AddWithValue("@codCurso", matriz.matriz_CodCurso);
-                    cmd.Parameters.AddWithValue("@codDisc", matriz.matriz_CodDisc);
                     cmd.Parameters.AddWithValue("@periodo", matriz.matriz_Periodo);
+                    cmd.Parameters.AddWithValue("@codDisc", matriz.matriz_CodDisc);
                     cmd.Transaction = trans;
                     cmd.ExecuteNonQuery();
+                    
 
                     trans.Commit();
                 }

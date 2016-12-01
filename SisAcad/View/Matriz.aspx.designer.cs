@@ -103,13 +103,13 @@ namespace SisAcad.View {
         protected global::System.Web.UI.WebControls.ObjectDataSource objDisc;
         
         /// <summary>
-        /// tbPeriodo control.
+        /// lblPeriodo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPeriodo;
+        protected global::System.Web.UI.WebControls.Label lblPeriodo;
         
         /// <summary>
         /// btnSalvar control.
@@ -119,5 +119,14 @@ namespace SisAcad.View {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSalvar;
+        
+        /// <summary>
+        /// btnCancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
     }
 }

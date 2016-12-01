@@ -8,18 +8,24 @@ using System.Web.UI.WebControls;
 namespace SisAcad.View {
     public partial class Matricula : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-            if (IsPostBack) {
-                DropDownList ddlDisc = (DropDownList)FormView1.FindControl("DropDisc");
-                ddlDisc.DataTextField = "disc_Nome";
-                ddlDisc.DataValueField = "disc_Cod";
-                ddlDisc.DataBind();
-
-            }
             
         }
 
-        protected void DropDisc_DataBound(object sender, EventArgs e) {
+        protected void btnMat_Click(object sender, EventArgs e) {
+            SisAcad.Model.Matricula mat = new Model.Matricula();
+            SisAcad.Controllers.MatriculaController matController = new Controllers.MatriculaController();
 
+            mat.matricula_CodAluno = Convert.ToInt32(gridAluno.SelectedDataKey.Value);
+            mat.matricula_Semestre = lblPeriodo.Text;
+            mat.matricula_CodDisc = Convert.ToInt32(DropDisc.SelectedValue);
+
+
+            matController.Insert(mat);
+            gridAluno.SelectedIndex = -1;
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e) {
+            gridAluno.SelectedIndex = -1;
         }
     }
 }
