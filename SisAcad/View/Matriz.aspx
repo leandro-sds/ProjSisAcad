@@ -42,9 +42,9 @@
                 </div>
             </div>
 
-            <asp:GridView ID="gridCurso" runat="server" AutoGenerateSelectButton="true" SelectedRowStyle-BackColor="Silver" CssClass="table table-bordered" DataKeyNames="curso_Cod" AutoGenerateColumns="False" DataSourceID="objCursos">
+            <asp:GridView ID="gridCurso" runat="server" SelectedRowStyle-BackColor="Silver" CssClass="table table-bordered" DataKeyNames="curso_Cod" AutoGenerateColumns="False" DataSourceID="objCursos">
                 <Columns>
-                    
+                    <asp:CommandField ButtonType="Button" ShowSelectButton="true" ControlStyle-CssClass="btn btn-default" />
                     <asp:BoundField DataField="curso_Cod" HeaderText="Código" SortExpression="curso_Cod"></asp:BoundField>
                     <%--<asp:BoundField DataField="curso_TotCred" HeaderText="curso_TotCred" SortExpression="curso_TotCred"></asp:BoundField>--%>
                     <asp:BoundField DataField="curso_Nome" HeaderText="Nome" SortExpression="curso_Nome"></asp:BoundField>

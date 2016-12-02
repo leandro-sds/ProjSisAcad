@@ -14,6 +14,10 @@ namespace SisAcad.Controllers
     {
         HistoricoDAL histDAL = new HistoricoDAL();
 
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Historico> Listar(int matAluno) {
+            return histDAL.Listar(matAluno);
+        }
         
     }
 }

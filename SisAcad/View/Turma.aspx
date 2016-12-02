@@ -35,7 +35,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Semestre</label>
                         <div class="col-sm-9">
-                            <asp:DropDownList Text='<%# Bind("turma_Semestre") %>' ID="ddlSemestre" CssClass="form-control" runat="server" DataSourceID="objSL" DataTextField="pl_Semestre" DataValueField="pl_Semestre"></asp:DropDownList>
+                            <asp:DropDownList Text='<%# Bind("turma_Semestre") %>' ID="ddlSemestre" CssClass="form-control" runat="server" DataSourceID="objSL" DataTextField="pl_Semestre" DataValueField="pl_Semestre"></asp:DropDownList><br />
                             <asp:ObjectDataSource runat="server" ID="objSL" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.Semestre_LetivoController"></asp:ObjectDataSource>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Disciplina</label>
                         <div class="col-sm-9">
-                            <asp:DropDownList Text='<%# Bind("turma_DiscCod") %>' CssClass="form-control" ID="ddlDisc" runat="server" DataSourceID="objDisc" DataTextField="disc_Nome" DataValueField="disc_Cod"></asp:DropDownList>
+                            <asp:DropDownList Text='<%# Bind("turma_DiscCod") %>' CssClass="form-control" ID="ddlDisc" runat="server" DataSourceID="objDisc" DataTextField="disc_Nome" DataValueField="disc_Cod"></asp:DropDownList><br />
                             <asp:ObjectDataSource runat="server" ID="objDisc" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.DisciplinaController"></asp:ObjectDataSource>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Curso</label>
                         <div class="col-sm-9">
-                            <asp:DropDownList Text='<%# Bind("turma_CursoCod") %>' CssClass="form-control" ID="ddlCurso" runat="server" DataSourceID="objCurso" DataTextField="curso_Nome" DataValueField="curso_Cod"></asp:DropDownList>
+                            <asp:DropDownList Text='<%# Bind("turma_CursoCod") %>' CssClass="form-control" ID="ddlCurso" runat="server" DataSourceID="objCurso" DataTextField="curso_Nome" DataValueField="curso_Cod"></asp:DropDownList><br />
                             <asp:ObjectDataSource runat="server" ID="objCurso" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.CursoController"></asp:ObjectDataSource>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Professor</label>
                         <div class="col-sm-9">
-                            <asp:DropDownList Text='<%# Bind("turma_IdProf") %>' CssClass="form-control" ID="ddlProf" runat="server" DataSourceID="objProf" DataTextField="prof_Nome" DataValueField="prof_Id"></asp:DropDownList>
+                            <asp:DropDownList Text='<%# Bind("turma_IdProf") %>' CssClass="form-control" ID="ddlProf" runat="server" DataSourceID="objProf" DataTextField="prof_Nome" DataValueField="prof_Id"></asp:DropDownList><br />
                             <asp:ObjectDataSource runat="server" ID="objProf" OldValuesParameterFormatString="original_{0}" SelectMethod="Listar" TypeName="SisAcad.Controllers.ProfessorController"></asp:ObjectDataSource>
                         </div>
                     </div>

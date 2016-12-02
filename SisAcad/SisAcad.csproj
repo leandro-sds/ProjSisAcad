@@ -42,6 +42,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Downloads\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="AjaxMin">
+      <HintPath>..\..\..\AjaxMin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -101,6 +104,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="View\Dashboard.aspx" />
     <Content Include="View\Disciplina.aspx" />
     <Content Include="View\listarDisciplina.aspx" />
     <Content Include="View\listarHistorico.aspx" />
@@ -2059,6 +2063,13 @@
     </Compile>
     <Compile Include="View\Curso.aspx.designer.cs">
       <DependentUpon>Curso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Disciplina.aspx.cs">
       <DependentUpon>Disciplina.aspx</DependentUpon>

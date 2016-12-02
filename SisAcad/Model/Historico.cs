@@ -30,7 +30,7 @@ namespace SisAcad.Model {
         public Aluno Aluno {
             get {
                 if (this.aluno == null) {
-                    this.aluno = new AlunoDAL().GetAluno(hist_MatAluno);
+                    this.aluno = new AlunoDAL().GetAlunoMat(hist_MatAluno);
                 }
                 return this.aluno;
             }

@@ -55,8 +55,8 @@
                         <label class="col-sm-3 control-label">Tipo</label>
                         <div class="col-sm-9">
                             <asp:RadioButtonList Text='<%# Bind("disc_Tipo") %>' CssClass="radio-custom radio-default" ID="RadioButtonList1" runat="server">
-                                <asp:ListItem Text="Presencial" Value="Presencial" ></asp:ListItem>
-                                <asp:ListItem Text="EAD" Value="EAD"></asp:ListItem>
+                                <asp:ListItem Text="Presencial" Value="P" ></asp:ListItem>
+                                <asp:ListItem Text="EAD" Value="E"></asp:ListItem>
                             </asp:RadioButtonList>
                         </div>
                     </div>
@@ -104,8 +104,8 @@
                         <label class="col-sm-3 control-label">Tipo</label>
                         <div class="col-sm-9">
                             <asp:RadioButtonList Text='<%# Bind("disc_Tipo") %>' CssClass="radio-custom radio-default" ID="RadioButtonList1" runat="server">
-                                <asp:ListItem Text="Presencial" Value="Presencial" ></asp:ListItem>
-                                <asp:ListItem Text="EAD" Value="EAD"></asp:ListItem>
+                                <asp:ListItem Text="Presencial" Value="P" ></asp:ListItem>
+                                <asp:ListItem Text="EAD" Value="E"></asp:ListItem>
                             </asp:RadioButtonList><br />
                         </div>
                     </div>
