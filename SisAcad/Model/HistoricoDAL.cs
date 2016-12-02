@@ -77,5 +77,40 @@ namespace SisAcad.Model {
                 con.Close();
             }
         }
+
+        public List<Historico> Listar(int matAluno) {
+            try {
+                con.Open();
+                query = @"SELECT * FROM Historicos WHERE
+                          (@mat IS NULL OR @mat = hist_MatAluno)";
+                cmd = new SqlCommand(query, con);
+
+                if (matAluno == 0) {
+                    cmd.Parameters.AddWithValue("@mat", DBNull.Value);
+                } else {
+                    cmd.Parameters.AddWithValue("@mat", matAluno);
+                }
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Historico> lista = new List<Historico>();
+
+                while (dr.Read()) {
+                    Historico hist = new Historico();
+                    hist.hist_Semestre = dr["hist_Ano"].ToString() + "." + dr["hist_Semestre"].ToString();
+                    hist.hist_DiscCod = Convert.ToInt32(dr["hist_DiscCod"].ToString());
+                    hist.hist_Faltas = Convert.ToInt32(dr["hist_Faltas"].ToString());
+                    hist.hist_MatAluno = Convert.ToInt32(dr["hist_MatAluno"].ToString());
+                    hist.hist_Media = Convert.ToInt32(dr["hist_Media"].ToString());
+                    hist.hist_Situacao = dr["hist_Situacao"].ToString();
+                    lista.Add(hist);
+                }
+                return lista;
+            }
+            catch (Exception e) {
+                throw new Exception("erro. " + e.Message);
+            }
+            finally {
+
+            }
+        }
     }
 }

@@ -103,6 +103,7 @@
     </None>
     <Content Include="View\Disciplina.aspx" />
     <Content Include="View\listarDisciplina.aspx" />
+    <Content Include="View\listarHistorico.aspx" />
     <Content Include="View\listarMatricula.aspx" />
     <Content Include="View\listarMatriz.aspx" />
     <Content Include="View\listarSemestre_Letivo.aspx" />
@@ -2072,6 +2073,13 @@
     </Compile>
     <Compile Include="View\listarDisciplina.aspx.designer.cs">
       <DependentUpon>listarDisciplina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\listarHistorico.aspx.cs">
+      <DependentUpon>listarHistorico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\listarHistorico.aspx.designer.cs">
+      <DependentUpon>listarHistorico.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\listarMatricula.aspx.cs">
       <DependentUpon>listarMatricula.aspx</DependentUpon>
