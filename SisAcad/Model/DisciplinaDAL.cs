@@ -151,6 +151,7 @@ namespace SisAcad.Model {
                 con.Open();
                 query = @"SELECT D.disc_Nome, D.disc_Cod FROM Disciplina AS D 
                           INNER JOIN Matrizes AS M ON M.matriz_CodDisc = D.disc_Cod 
+                          INNER JOIN Turmas AS T ON T.turma_DiscCod = D.disc_Cod 
                           WHERE M.matriz_CodCurso = @codCurso";
                 cmd = new SqlCommand(query, con);
 

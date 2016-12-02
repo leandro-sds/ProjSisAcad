@@ -28,5 +28,10 @@ namespace SisAcad.Controllers
         public List<Matricula> Listar() {
             return matDAL.Listar();
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Matricula> Listar(string matAluno) {
+            return matDAL.Listar(matAluno);
+        }
     }
 }

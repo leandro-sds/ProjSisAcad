@@ -21,8 +21,9 @@
                     </div>
                 </div>
 
-                <asp:GridView ID="gridAluno" runat="server" CssClass="table table-bordered" DataKeyNames="aluno_Mat" AutoGenerateSelectButton="true" SelectedRowStyle-BackColor="Silver" AutoGenerateColumns="False" DataSourceID="objAluno">
+                <asp:GridView ID="gridAluno" runat="server" CssClass="table table-bordered" DataKeyNames="aluno_Mat" SelectedRowStyle-BackColor="Silver" AutoGenerateColumns="False" DataSourceID="objAluno">
                     <Columns>
+                        <asp:CommandField ButtonType="Button" ControlStyle-CssClass="btn btn-default" ShowSelectButton="true" />
                         <asp:BoundField DataField="aluno_Mat" HeaderText="Matricula" SortExpression="aluno_Mat"></asp:BoundField>
                         <asp:BoundField DataField="aluno_Nome" HeaderText="Nome" SortExpression="aluno_Nome"></asp:BoundField>
                         <asp:TemplateField HeaderText="Curso" SortExpression="aluno_CodCurso">

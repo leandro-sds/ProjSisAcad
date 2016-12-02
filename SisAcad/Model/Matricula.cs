@@ -10,6 +10,8 @@ namespace SisAcad.Model {
         public string matricula_Semestre { get; set; }
         public int matricula_CodAluno { get; set; }
         public int matricula_CodDisc { get; set; }
+        public string disc_Nome { get; set; }
+        public string aluno_Nome { get; set; }
         
         //Notas
         public int matricula_N1 { get; set; }
@@ -35,13 +37,14 @@ namespace SisAcad.Model {
             }
         }
 
-        private Curso curso;
-        public Curso Curso {
+        private Disciplina disc;
+        public Disciplina Disciplina {
             get {
-                if (this.curso == null) {
-                    this.curso = new CursoDAL().GetCurso(matricula_CodDisc);
+                if (this.disc == null) {
+                    this.disc = new DisciplinaDAL().GetDisc(matricula_CodDisc);
+                    this.disc_Nome = this.disc.disc_Nome;
                 }
-                return this.curso;
+                return this.disc;
             }
             set {
 
