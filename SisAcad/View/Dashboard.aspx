@@ -15,7 +15,6 @@
         <div class="panel-body">
             <p>
                 Sistema Acadêmico desenvolvido para a disciplina de Programação Web I.
-                Aracaju, Sergipe - 2016
             </p>
         </div>
       </div>
