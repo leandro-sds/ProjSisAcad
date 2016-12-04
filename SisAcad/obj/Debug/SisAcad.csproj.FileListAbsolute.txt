@@ -17,6 +17,7 @@ C:\Users\2141109404\Documents\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bi
 D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\SisAcad.dll.config
 D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\SisAcad.dll
 D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\SisAcad.pdb
+D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\AjaxMin.dll
 D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\Newtonsoft.Json.dll
 D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\System.Net.Http.Formatting.dll
 D:\Documentos\Visual Studio 2013\Projects\ProjSisAcad\SisAcad\bin\System.Web.Http.dll
